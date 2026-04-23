@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rasarumah · BOH Brief · 2026-04-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:#1e3a26;--green-lt:#2a4f33;--green-mid:#3a6647;--green-xlt:#e6ede8;
+    --beige:#f0ead6;--beige-dk:#e5ddc8;--beige-md:#ece6d2;--cream:#faf8f2;
+    --red:#b83227;--amber:#b87d2a;--text:#1c1c1c;--muted:#6b7060;--light:#a8a89a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--beige);font-family:'Inter',sans-serif;color:var(--text);}
+  .wrap{max-width:640px;margin:0 auto;background:var(--beige);}
+  .header{background:var(--green);padding:28px 32px 24px;}
+  .header h1{font-family:'Crimson Text',serif;font-size:1.7rem;font-weight:600;color:#fff;}
+  .header-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+  .header-meta{font-size:0.78rem;color:rgba(255,255,255,0.65);text-align:right;line-height:1.6;}
+  .header-sub{font-size:0.82rem;color:rgba(255,255,255,0.75);margin-top:2px;}
+  .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:0.7rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}
+  .badge-boh{background:var(--amber);color:#fff;}
+  .section{padding:20px 32px;}.section.alt{background:var(--beige-md);}
+  .section-label{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+  .divider{height:1px;background:var(--beige-dk);margin:0 32px;}
+  .kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .kpi{background:var(--cream);border-radius:8px;padding:14px 16px;border:1px solid var(--beige-dk);}
+  .kpi-label{font-size:0.68rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+  .kpi-val{font-size:1.3rem;font-weight:600;line-height:1;}
+  .kpi-val.green{color:#2a6e3a;}.kpi-val.amber{color:var(--amber);}
+  .kpi-comp{font-size:0.72rem;color:var(--muted);margin-top:5px;}
+  .up{color:#2a6e3a;}.down{color:var(--red);}
+  .section-card{background:var(--cream);border-radius:10px;border:1px solid var(--beige-dk);overflow:hidden;}
+  .items-table{width:100%;border-collapse:collapse;font-size:0.82rem;}
+  .items-table th{font-size:0.67rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--beige-dk);}
+  .items-table td{padding:9px 10px;border-bottom:1px solid var(--beige-md);}
+  .items-table tr:last-child td{border-bottom:none;}
+  .bar-wrap{height:6px;background:var(--beige-dk);border-radius:3px;width:70px;display:inline-block;vertical-align:middle;margin-left:8px;}
+  .bar-fill{height:100%;background:var(--green);border-radius:3px;}
+  .rush-wrap{background:var(--cream);border-radius:10px;border:1px solid var(--beige-dk);padding:16px 20px;}
+  .rush-bars{display:flex;align-items:flex-end;gap:8px;height:80px;margin-bottom:8px;}
+  .rush-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;}
+  .rush-bar{width:100%;background:var(--beige-dk);border-radius:3px 3px 0 0;}
+  .rush-bar.filled{background:var(--green);}.rush-bar.peak{background:var(--amber);}
+  .rush-time{font-size:0.65rem;color:var(--muted);margin-top:4px;}
+  .rush-count{font-size:0.65rem;font-weight:600;color:var(--muted);margin-bottom:2px;}
+  .team-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--beige-md);}
+  .team-row:last-child{border-bottom:none;}
+  .team-name{font-size:0.83rem;font-weight:500;}.team-meta{font-size:0.75rem;color:var(--muted);}
+  .team-cost{font-size:0.83rem;font-weight:600;}
+  .pill{display:inline-block;padding:2px 7px;border-radius:20px;font-size:0.67rem;font-weight:600;}
+  .pill-ot{background:#fee2e2;color:var(--red);}
+  .footer{background:var(--green);padding:16px 32px;text-align:center;}
+  .footer p{font-size:0.72rem;color:rgba(255,255,255,0.5);line-height:1.6;}
+  .footer a{color:rgba(255,255,255,0.7);text-decoration:none;}
+  @media(max-width:600px){.section{padding:16px 18px;}.kpi-row{grid-template-columns:1fr 1fr;}.divider{margin:0 18px;}.header{padding:20px 18px 16px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div style="margin-bottom:6px;"><span class="badge badge-boh">BOH Manager</span></div>
+        <h1>Rasarumah</h1>
+        <div class="header-sub">Tuesday, April 21</div>
+      </div>
+      <div class="header-meta">Last Word Hospitality<br>Morning Brief</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Last Night · Kitchen Volume</div>
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="kpi-label">Covers Served</div>
+        <div class="kpi-val green">22</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Food Revenue</div>
+        <div class="kpi-val green">$3,573</div>
+        <div class="kpi-comp">95% of net sales</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">BOH Labor %</div>
+        <div class="kpi-val green">15.4%</div>
+        <div class="kpi-comp">of net sales</div>
+        <div class="kpi-comp">$584 total BOH cost</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section alt">
+    <div class="section-label">Order Volume by Hour</div>
+    <div class="rush-wrap">
+      <div class="rush-bars">
+        <div class="rush-bar-wrap">
+          <div class="rush-count"></div>
+          <div class="rush-bar " style="height:4px;"></div>
+          <div class="rush-time">3pm</div>
+        </div>
+        <div class="rush-bar-wrap">
+          <div class="rush-count"></div>
+          <div class="rush-bar " style="height:4px;"></div>
+          <div class="rush-time">4pm</div>
+        </div>
+        <div class="rush-bar-wrap">
+          <div class="rush-count"></div>
+          <div class="rush-bar " style="height:4px;"></div>
+          <div class="rush-time">5pm</div>
+        </div>
+        <div class="rush-bar-wrap">
+          <div class="rush-count"></div>
+          <div class="rush-bar " style="height:4px;"></div>
+          <div class="rush-time">6pm</div>
+        </div>
+        <div class="rush-bar-wrap">
+          <div class="rush-count"></div>
+          <div class="rush-bar " style="height:4px;"></div>
+          <div class="rush-time">7pm</div>
+        </div>
+        <div class="rush-bar-wrap">
+          <div class="rush-count"></div>
+          <div class="rush-bar " style="height:4px;"></div>
+          <div class="rush-time">8pm</div>
+        </div>
+        <div class="rush-bar-wrap">
+          <div class="rush-count"></div>
+          <div class="rush-bar " style="height:4px;"></div>
+          <div class="rush-time">9pm</div>
+        </div>
+        <div class="rush-bar-wrap">
+          <div class="rush-count"></div>
+          <div class="rush-bar " style="height:4px;"></div>
+          <div class="rush-time">10pm</div>
+        </div>
+        <div class="rush-bar-wrap">
+          <div class="rush-count"></div>
+          <div class="rush-bar " style="height:4px;"></div>
+          <div class="rush-time">11pm</div>
+        </div></div>
+      <div style="font-size:0.72rem;color:var(--muted);">Peak hour: <strong>3pm–4pm (0 orders)</strong></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Top Food Items Fired · 2026-04-21</div>
+    <div class="section-card">
+      <table class="items-table">
+        <thead><tr><th>Item</th><th style="text-align:center;">Count</th><th style="text-align:right;">Revenue</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Wagyu Beef Rendang</strong></td>
+            <td style="text-align:center;">9 <span class="bar-wrap"><span class="bar-fill" style="width:100%;"></span></span></td>
+            <td style="text-align:right;">$440</td>
+          </tr>
+          <tr>
+            <td><strong>Mushroom Curry Clay Pot</strong></td>
+            <td style="text-align:center;">8 <span class="bar-wrap"><span class="bar-fill" style="width:88%;"></span></span></td>
+            <td style="text-align:right;">$320</td>
+          </tr>
+          <tr>
+            <td><strong>Pu Pu Platter </strong></td>
+            <td style="text-align:center;">8 <span class="bar-wrap"><span class="bar-fill" style="width:88%;"></span></span></td>
+            <td style="text-align:right;">$320</td>
+          </tr>
+          <tr>
+            <td><strong>Crispy Rice Cakes</strong></td>
+            <td style="text-align:center;">10 <span class="bar-wrap"><span class="bar-fill" style="width:111%;"></span></span></td>
+            <td style="text-align:right;">$264</td>
+          </tr>
+          <tr>
+            <td><strong>Fried Hainan Chicken </strong></td>
+            <td style="text-align:center;">10 <span class="bar-wrap"><span class="bar-fill" style="width:111%;"></span></span></td>
+            <td style="text-align:right;">$260</td>
+          </tr>
+          <tr>
+            <td><strong>Ceviche </strong></td>
+            <td style="text-align:center;">11 <span class="bar-wrap"><span class="bar-fill" style="width:122%;"></span></span></td>
+            <td style="text-align:right;">$234</td>
+          </tr>
+          <tr>
+            <td><strong>Extra Roti</strong></td>
+            <td style="text-align:center;">13 <span class="bar-wrap"><span class="bar-fill" style="width:144%;"></span></span></td>
+            <td style="text-align:right;">$172</td>
+          </tr>
+          <tr>
+            <td><strong>Little Gems</strong></td>
+            <td style="text-align:center;">9 <span class="bar-wrap"><span class="bar-fill" style="width:100%;"></span></span></td>
+            <td style="text-align:right;">$162</td>
+          </tr>
+          <tr>
+            <td><strong>Gulai Panas </strong></td>
+            <td style="text-align:center;">5 <span class="bar-wrap"><span class="bar-fill" style="width:55%;"></span></span></td>
+            <td style="text-align:right;">$160</td>
+          </tr>
+          <tr>
+            <td><strong>Leo Steen CGC </strong></td>
+            <td style="text-align:center;">7 <span class="bar-wrap"><span class="bar-fill" style="width:77%;"></span></span></td>
+            <td style="text-align:right;">$144</td>
+          </tr>
+          <tr>
+            <td><strong>Pork Skewer</strong></td>
+            <td style="text-align:center;">13 <span class="bar-wrap"><span class="bar-fill" style="width:144%;"></span></span></td>
+            <td style="text-align:right;">$115</td>
+          </tr>
+          <tr>
+            <td><strong>Sundae</strong></td>
+            <td style="text-align:center;">8 <span class="bar-wrap"><span class="bar-fill" style="width:88%;"></span></span></td>
+            <td style="text-align:right;">$98</td>
+          </tr></tbody>
+      </table>
+    </div>
+    <div style='font-size:0.72rem;color:var(--muted);margin-top:8px;'>Wagyu Beef Rendang (9 sold) — monitor protein par. High volume + high ticket = 86-list risk.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section alt">
+    <div class="section-label">Kitchen Team · 2026-04-21</div>
+    <div class="section-card">
+      <div class="team-row">
+        <div>
+          <div class="team-name">Bryan A'hearn A'Hearn</div>
+          <div class="team-meta">7.8 hrs </div>
+        </div>
+        <div class="team-cost" style="">$156.00</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Adrian Pun Pun</div>
+          <div class="team-meta">7.8 hrs </div>
+        </div>
+        <div class="team-cost" style="">$155.40</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Ramon Rosario</div>
+          <div class="team-meta">7.7 hrs </div>
+        </div>
+        <div class="team-cost" style="">$138.06</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Tate Iverson</div>
+          <div class="team-meta">6.7 hrs </div>
+        </div>
+        <div class="team-cost" style="">$134.20</div>
+      </div>
+      <div class="team-row" style="background:var(--green-xlt);">
+        <div>
+          <div class="team-name" style="font-weight:600;">BOH Total</div>
+          <div class="team-meta">30.0 hrs</div>
+        </div>
+        <div class="team-cost">$583.66</div>
+      </div></div>
+    
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">COGS Watch · From MarginEdge</div>
+    <div style="background:var(--beige-md);border-radius:8px;padding:14px 16px;border:1px solid var(--beige-dk);font-size:0.8rem;color:var(--muted);">
+      <strong style="color:var(--text);">MarginEdge data coming soon.</strong><br>
+      Once connected, this section will show your top 5 ingredients with price changes vs. last month.
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Relish Morning Brief · Rasarumah BOH · 2026-04-21<br>
+    <a href="mailto:xandre@gotrelish.com">Contact Relish</a> · Data: Toast POS</p>
+  </div>
+
+</div>
+</body>
+</html>
