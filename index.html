@@ -2,95 +2,108 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LWH Morning Briefs · 2026-04-22 · Relish</title>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green:#1e3a26;--green-lt:#2a4f33;--beige:#f0ead6;--beige-dk:#e5ddc8;--cream:#faf8f2;
-    --text:#1c1c1c;--muted:#6b7060;
-  }
+  :root{--orange:#C8541F;--cream:#F5EFE3;--cream-deep:#ECE3D2;--green:#2C4A3E;
+    --ink:#1B1410;--ink-soft:#3A2F26;--mute:#7A6C5C;--line:#D9CFBA;--line-soft:#E4DAC4;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--beige);font-family:'Inter',sans-serif;color:var(--text);min-height:100vh;}
+  html,body{background:var(--cream-deep);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;
+    font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;}
   .wrap{max-width:640px;margin:0 auto;}
-  .header{background:var(--green);padding:28px 32px 24px;}
-  .header h1{font-family:'Crimson Text',serif;font-size:1.7rem;font-weight:600;color:#fff;}
-  .header-sub{font-size:0.82rem;color:rgba(255,255,255,0.65);margin-top:4px;}
-  .section{padding:28px 32px;}
-  .label{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
-  .brief-grid{display:flex;flex-direction:column;gap:10px;}
-  .brief-card{background:var(--cream);border:1px solid var(--beige-dk);border-radius:10px;padding:16px 20px;
-               text-decoration:none;color:inherit;display:flex;justify-content:space-between;
-               align-items:center;transition:border-color 0.15s,box-shadow 0.15s;}
-  .brief-card:hover{border-color:var(--green);box-shadow:0 1px 6px rgba(30,58,38,0.12);}
-  .brief-title{font-weight:600;font-size:0.95rem;margin-bottom:3px;}
-  .brief-desc{font-size:0.78rem;color:var(--muted);}
-  .arrow{color:var(--muted);font-size:1.1rem;}
-  .footer{background:var(--green);padding:16px 32px;text-align:center;}
-  .footer p{font-size:0.72rem;color:rgba(255,255,255,0.5);}
+  .masthead{background:var(--green);color:var(--cream);padding:28px 36px 36px;}
+  .masthead-top{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;opacity:.7;padding-bottom:14px;
+    border-bottom:1px solid rgba(245,239,227,.18);margin-bottom:20px;}
+  .masthead h1{font-family:'Old Standard TT',serif;font-size:52px;font-weight:400;
+    line-height:.95;letter-spacing:-.015em;color:var(--cream);}
+  .masthead-sub{margin-top:10px;font-family:'Old Standard TT',serif;font-style:italic;font-size:16px;opacity:.75;}
+  .section{padding:28px 36px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:16px;}
+  .brief-grid{display:flex;flex-direction:column;gap:8px;}
+  .brief-card{background:var(--cream);border:1px solid var(--line-soft);border-radius:2px;
+    padding:18px 22px;text-decoration:none;color:inherit;
+    display:flex;justify-content:space-between;align-items:center;transition:border-color .15s;}
+  .brief-card:hover{border-color:var(--line);}
+  .brief-title{font-family:'Old Standard TT',serif;font-size:20px;font-weight:400;
+    letter-spacing:-.005em;margin-bottom:3px;}
+  .brief-desc{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mute);letter-spacing:.04em;}
+  .brief-arrow{font-family:'Old Standard TT',serif;font-style:italic;font-size:22px;color:var(--mute);}
+  .brief-foot{background:var(--green);color:var(--cream);padding:20px 36px;}
+  .foot-mark{font-family:'Old Standard TT',serif;font-style:italic;font-size:20px;}
+  .foot-sub{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;opacity:.65;margin-top:4px;}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="header">
-    <h1>LWH Morning Briefs</h1>
-    <div class="header-sub">Wednesday, April 22, 2026 · Last Word Hospitality · Powered by Relish</div>
+  <div class="masthead">
+    <div class="masthead-top">Relish · The Morning Brief</div>
+    <h1>LWH<br>Briefs</h1>
+    <div class="masthead-sub">Wednesday, April 22, 2026 · Last Word Hospitality</div>
   </div>
   <div class="section">
-    <div class="label">All 7 Venues · Tap to view</div>
+    <div class="eyebrow">All 7 venues · tap to view owner brief</div>
     <div class="brief-grid">
       <a class="brief-card" href="2026-04-22_rasarumah_owner_brief.html">
         <div>
           <div class="brief-title">Rasarumah</div>
           <div class="brief-desc">$4,956  ·  23 covers</div>
         </div>
-        <div class="arrow">→</div>
+        <div class="brief-arrow">→</div>
       </a>
       <a class="brief-card" href="2026-04-22_barra-santos_owner_brief.html">
         <div>
           <div class="brief-title">Barra Santos</div>
           <div class="brief-desc">$8,808  ·  51 covers</div>
         </div>
-        <div class="arrow">→</div>
+        <div class="brief-arrow">→</div>
       </a>
       <a class="brief-card" href="2026-04-22_queens_owner_brief.html">
         <div>
           <div class="brief-title">Queen's</div>
           <div class="brief-desc">$9,383  ·  49 covers</div>
         </div>
-        <div class="arrow">→</div>
+        <div class="brief-arrow">→</div>
       </a>
       <a class="brief-card" href="2026-04-22_found-oyster_owner_brief.html">
         <div>
           <div class="brief-title">Found Oyster</div>
           <div class="brief-desc">$8,930  ·  57 covers</div>
         </div>
-        <div class="arrow">→</div>
+        <div class="brief-arrow">→</div>
       </a>
       <a class="brief-card" href="2026-04-22_red-dog-saloon_owner_brief.html">
         <div>
           <div class="brief-title">Red Dog Saloon</div>
           <div class="brief-desc">$3,918  ·  121 covers</div>
         </div>
-        <div class="arrow">→</div>
+        <div class="brief-arrow">→</div>
       </a>
       <a class="brief-card" href="2026-04-22_copper-room_owner_brief.html">
         <div>
           <div class="brief-title">The Copper Room</div>
           <div class="brief-desc">$9,003  ·  83 covers</div>
         </div>
-        <div class="arrow">→</div>
+        <div class="brief-arrow">→</div>
       </a>
       <a class="brief-card" href="2026-04-22_hermons_owner_brief.html">
         <div>
           <div class="brief-title">Hermon's</div>
           <div class="brief-desc">$13,945  ·  77 covers</div>
         </div>
-        <div class="arrow">→</div>
+        <div class="brief-arrow">→</div>
       </a>
     </div>
   </div>
-  <div class="footer"><p>Relish · Daily Intelligence for Last Word Hospitality</p></div>
+  <div class="brief-foot">
+    <div class="foot-mark">Relish</div>
+    <div class="foot-sub">Daily intelligence · Last Word Hospitality</div>
+  </div>
 </div>
 </body>
 </html>
