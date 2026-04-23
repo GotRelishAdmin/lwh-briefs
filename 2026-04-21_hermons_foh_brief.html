@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermon's · FOH Brief · 2026-04-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:#1e3a26;--green-lt:#2a4f33;--green-mid:#3a6647;--green-xlt:#e6ede8;
+    --beige:#f0ead6;--beige-dk:#e5ddc8;--beige-md:#ece6d2;--cream:#faf8f2;
+    --red:#b83227;--amber:#b87d2a;--text:#1c1c1c;--muted:#6b7060;--light:#a8a89a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--beige);font-family:'Inter',sans-serif;color:var(--text);}
+  .wrap{max-width:640px;margin:0 auto;background:var(--beige);}
+  .header{background:var(--green);padding:28px 32px 24px;}
+  .header h1{font-family:'Crimson Text',serif;font-size:1.7rem;font-weight:600;color:#fff;}
+  .header-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+  .header-meta{font-size:0.78rem;color:rgba(255,255,255,0.65);text-align:right;line-height:1.6;}
+  .header-sub{font-size:0.82rem;color:rgba(255,255,255,0.75);margin-top:2px;}
+  .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:0.7rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}
+  .badge-foh{background:#3b82f6;color:#fff;}
+  .section{padding:20px 32px;}.section.alt{background:var(--beige-md);}
+  .section-label{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+  .divider{height:1px;background:var(--beige-dk);margin:0 32px;}
+  .kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .kpi{background:var(--cream);border-radius:8px;padding:14px 16px;border:1px solid var(--beige-dk);}
+  .kpi-label{font-size:0.68rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+  .kpi-val{font-size:1.3rem;font-weight:600;color:var(--text);line-height:1;}
+  .kpi-val.green{color:#2a6e3a;}.kpi-val.amber{color:var(--amber);}
+  .kpi-comp{font-size:0.72rem;color:var(--muted);margin-top:5px;}
+  .up{color:#2a6e3a;}.down{color:var(--red);}
+  .section-card{background:var(--cream);border-radius:10px;border:1px solid var(--beige-dk);overflow:hidden;}
+  .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .service-card{background:var(--cream);border-radius:8px;padding:12px 14px;border:1px solid var(--beige-dk);}
+  .service-card .label{font-size:0.7rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;}
+  .service-card .val{font-size:1.15rem;font-weight:600;margin-top:4px;}
+  .service-card .sub{font-size:0.72rem;color:var(--muted);margin-top:2px;}
+  .items-table{width:100%;border-collapse:collapse;font-size:0.82rem;}
+  .items-table th{font-size:0.67rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--beige-dk);}
+  .items-table td{padding:9px 10px;border-bottom:1px solid var(--beige-md);}
+  .items-table tr:last-child td{border-bottom:none;}
+  .bar-wrap{height:6px;background:var(--beige-dk);border-radius:3px;width:70px;display:inline-block;vertical-align:middle;margin-left:8px;}
+  .bar-fill{height:100%;background:var(--green);border-radius:3px;}
+  .team-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--beige-md);}
+  .team-row:last-child{border-bottom:none;}
+  .team-name{font-size:0.83rem;font-weight:500;}.team-meta{font-size:0.75rem;color:var(--muted);}
+  .team-cost{font-size:0.83rem;font-weight:600;color:var(--text);}
+  .pill{display:inline-block;padding:2px 7px;border-radius:20px;font-size:0.67rem;font-weight:600;}
+  .pill-ot{background:#fee2e2;color:var(--red);}
+  .loss-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .loss-card{background:var(--cream);border-radius:8px;padding:12px 14px;border:1px solid var(--beige-dk);}
+  .loss-card .l-label{font-size:0.68rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+  .loss-card .l-val{font-size:1.2rem;font-weight:600;}
+  .loss-card .l-sub{font-size:0.72rem;color:var(--muted);margin-top:3px;}
+  .footer{background:var(--green);padding:16px 32px;text-align:center;}
+  .footer p{font-size:0.72rem;color:rgba(255,255,255,0.5);line-height:1.6;}
+  .footer a{color:rgba(255,255,255,0.7);text-decoration:none;}
+  @media(max-width:600px){.section{padding:16px 18px;}.kpi-row{grid-template-columns:1fr 1fr;}.divider{margin:0 18px;}.header{padding:20px 18px 16px;}.service-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div style="margin-bottom:6px;"><span class="badge badge-foh">FOH Manager</span></div>
+        <h1>Hermon's</h1>
+        <div class="header-sub">Tuesday, April 21</div>
+      </div>
+      <div class="header-meta">Last Word Hospitality<br>Morning Brief</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Last Night · Floor Summary</div>
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="kpi-label">Covers</div>
+        <div class="kpi-val green">76</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Avg / Guest</div>
+        <div class="kpi-val green">$179.48</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Net Sales</div>
+        <div class="kpi-val green">$13,640</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section alt">
+    <div class="section-label">Service Breakdown</div>
+    
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="label">5pm – 7pm seating</div>
+        <div class="val">$0</div>
+        <div class="sub">0% of revenue · $0.00/order</div>
+      </div>
+      <div class="service-card">
+        <div class="label">7pm – 10pm seating</div>
+        <div class="val">$0</div>
+        <div class="sub">0% of revenue · $0.00/order</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">What Sold · Top Items</div>
+    <div class="section-card">
+      <table class="items-table">
+        <thead><tr><th>Item</th><th style="text-align:center;">Count</th><th style="text-align:right;">Rev</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Cheeseburger</td>
+            <td style="text-align:center;">36 <span class="bar-wrap"><span class="bar-fill" style="width:100%;"></span></span></td>
+            <td style="text-align:right;">$1,266</td>
+          </tr>
+          <tr>
+            <td>Branzino <span style="color:var(--amber);font-size:0.72rem;">★ $51</span></td>
+            <td style="text-align:center;">19 <span class="bar-wrap"><span class="bar-fill" style="width:52%;"></span></span></td>
+            <td style="text-align:right;">$966</td>
+          </tr>
+          <tr>
+            <td>Steak Frites <span style="color:var(--amber);font-size:0.72rem;">★ $45</span></td>
+            <td style="text-align:center;">20 <span class="bar-wrap"><span class="bar-fill" style="width:55%;"></span></span></td>
+            <td style="text-align:right;">$902</td>
+          </tr>
+          <tr>
+            <td>Loaded Potato Fritter</td>
+            <td style="text-align:center;">44 <span class="bar-wrap"><span class="bar-fill" style="width:122%;"></span></span></td>
+            <td style="text-align:right;">$856</td>
+          </tr>
+          <tr>
+            <td>Two sheet Vongole</td>
+            <td style="text-align:center;">23 <span class="bar-wrap"><span class="bar-fill" style="width:63%;"></span></span></td>
+            <td style="text-align:right;">$774</td>
+          </tr>
+          <tr>
+            <td>Tuna Crudo</td>
+            <td style="text-align:center;">21 <span class="bar-wrap"><span class="bar-fill" style="width:58%;"></span></span></td>
+            <td style="text-align:right;">$440</td>
+          </tr>
+          <tr>
+            <td>HH Cheeseburger</td>
+            <td style="text-align:center;">17 <span class="bar-wrap"><span class="bar-fill" style="width:47%;"></span></span></td>
+            <td style="text-align:right;">$432</td>
+          </tr>
+          <tr>
+            <td>Grilled Ribeye <span style="color:var(--amber);font-size:0.72rem;">★ $140</span></td>
+            <td style="text-align:center;">3 <span class="bar-wrap"><span class="bar-fill" style="width:8%;"></span></span></td>
+            <td style="text-align:right;">$420</td>
+          </tr>
+          <tr>
+            <td>Walnut Old Fashioned</td>
+            <td style="text-align:center;">15 <span class="bar-wrap"><span class="bar-fill" style="width:41%;"></span></span></td>
+            <td style="text-align:right;">$378</td>
+          </tr>
+          <tr>
+            <td>Lemon Baked Alaska</td>
+            <td style="text-align:center;">25 <span class="bar-wrap"><span class="bar-fill" style="width:69%;"></span></span></td>
+            <td style="text-align:right;">$336</td>
+          </tr></tbody>
+      </table>
+    </div>
+    <div style='font-size:0.72rem;color:var(--muted);margin-top:8px;'>★ BTL Rafanelli Cabernet is your highest revenue-per-plate item ($145/ea). Strong upsell tonight.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section alt">
+    <div class="section-label">Your Team · 2026-04-21</div>
+    <div class="section-card">
+      <div class="team-row">
+        <div>
+          <div class="team-name">Edwin Chay</div>
+          <div class="team-meta">8.0 hrs </div>
+        </div>
+        <div class="team-cost" style="">$144.00</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Danny Zacharczuk</div>
+          <div class="team-meta">7.1 hrs </div>
+        </div>
+        <div class="team-cost" style="">$142.40</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Juan Arreaga</div>
+          <div class="team-meta">7.9 hrs </div>
+        </div>
+        <div class="team-cost" style="">$142.38</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Fernando Hernandez</div>
+          <div class="team-meta">7.4 hrs </div>
+        </div>
+        <div class="team-cost" style="">$133.38</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Adrien Peter</div>
+          <div class="team-meta">7.4 hrs </div>
+        </div>
+        <div class="team-cost" style="">$132.95</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Helya Salarvand</div>
+          <div class="team-meta">6.9 hrs </div>
+        </div>
+        <div class="team-cost" style="">$124.02</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Luis Radilla</div>
+          <div class="team-meta">6.7 hrs </div>
+        </div>
+        <div class="team-cost" style="">$119.55</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Byron Martinez</div>
+          <div class="team-meta">6.6 hrs </div>
+        </div>
+        <div class="team-cost" style="">$117.76</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Karla Torres</div>
+          <div class="team-meta">5.7 hrs </div>
+        </div>
+        <div class="team-cost" style="">$101.32</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Bela Barrientos</div>
+          <div class="team-meta">5.4 hrs </div>
+        </div>
+        <div class="team-cost" style="">$95.78</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Alison Figas</div>
+          <div class="team-meta">7.8 hrs </div>
+        </div>
+        <div class="team-cost" style="">$0.00</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Jose Munoz</div>
+          <div class="team-meta">7.6 hrs </div>
+        </div>
+        <div class="team-cost" style="">$0.00</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Joshua Torres</div>
+          <div class="team-meta">7.0 hrs </div>
+        </div>
+        <div class="team-cost" style="">$0.00</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Vivian Moore</div>
+          <div class="team-meta">6.9 hrs </div>
+        </div>
+        <div class="team-cost" style="">$0.00</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Mackenzie Viera</div>
+          <div class="team-meta">7.1 hrs </div>
+        </div>
+        <div class="team-cost" style="">$0.00</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Josie King</div>
+          <div class="team-meta">7.9 hrs </div>
+        </div>
+        <div class="team-cost" style="">$0.00</div>
+      </div>
+      <div class="team-row" style="background:var(--green-xlt);">
+        <div>
+          <div class="team-name" style="font-weight:600;">FOH Total</div>
+          <div class="team-meta">113.4 hrs</div>
+        </div>
+        <div class="team-cost">$1,253.54</div>
+      </div></div>
+    
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Loss Management</div>
+    <div class="loss-row">
+      <div class="loss-card">
+        <div class="l-label">Voids</div>
+        <div class="l-val" style="color:var(--red);">$0.00</div>
+        <div class="l-sub">0 checks</div>
+      </div>
+      <div class="loss-card">
+        <div class="l-label">Discounts</div>
+        <div class="l-val" style="color:var(--amber);">$0.00</div>
+        <div class="l-sub">0 applied</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Relish Morning Brief · Hermon's FOH · 2026-04-21<br>
+    <a href="mailto:xandre@gotrelish.com">Contact Relish</a> · Data: Toast POS</p>
+  </div>
+
+</div>
+</body>
+</html>
