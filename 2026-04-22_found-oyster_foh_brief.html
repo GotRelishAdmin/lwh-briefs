@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Found Oyster · FOH Brief · 2026-04-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:#1e3a26;--green-lt:#2a4f33;--green-mid:#3a6647;--green-xlt:#e6ede8;
+    --beige:#f0ead6;--beige-dk:#e5ddc8;--beige-md:#ece6d2;--cream:#faf8f2;
+    --red:#b83227;--amber:#b87d2a;--text:#1c1c1c;--muted:#6b7060;--light:#a8a89a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--beige);font-family:'Inter',sans-serif;color:var(--text);}
+  .wrap{max-width:640px;margin:0 auto;background:var(--beige);}
+  .header{background:var(--green);padding:28px 32px 24px;}
+  .header h1{font-family:'Crimson Text',serif;font-size:1.7rem;font-weight:600;color:#fff;}
+  .header-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+  .header-meta{font-size:0.78rem;color:rgba(255,255,255,0.65);text-align:right;line-height:1.6;}
+  .header-sub{font-size:0.82rem;color:rgba(255,255,255,0.75);margin-top:2px;}
+  .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:0.7rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}
+  .badge-foh{background:#3b82f6;color:#fff;}
+  .section{padding:20px 32px;}.section.alt{background:var(--beige-md);}
+  .section-label{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+  .divider{height:1px;background:var(--beige-dk);margin:0 32px;}
+  .kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .kpi{background:var(--cream);border-radius:8px;padding:14px 16px;border:1px solid var(--beige-dk);}
+  .kpi-label{font-size:0.68rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+  .kpi-val{font-size:1.3rem;font-weight:600;color:var(--text);line-height:1;}
+  .kpi-val.green{color:#2a6e3a;}.kpi-val.amber{color:var(--amber);}
+  .kpi-comp{font-size:0.72rem;color:var(--muted);margin-top:5px;}
+  .up{color:#2a6e3a;}.down{color:var(--red);}
+  .section-card{background:var(--cream);border-radius:10px;border:1px solid var(--beige-dk);overflow:hidden;}
+  .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .service-card{background:var(--cream);border-radius:8px;padding:12px 14px;border:1px solid var(--beige-dk);}
+  .service-card .label{font-size:0.7rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;}
+  .service-card .val{font-size:1.15rem;font-weight:600;margin-top:4px;}
+  .service-card .sub{font-size:0.72rem;color:var(--muted);margin-top:2px;}
+  .items-table{width:100%;border-collapse:collapse;font-size:0.82rem;}
+  .items-table th{font-size:0.67rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--beige-dk);}
+  .items-table td{padding:9px 10px;border-bottom:1px solid var(--beige-md);}
+  .items-table tr:last-child td{border-bottom:none;}
+  .bar-wrap{height:6px;background:var(--beige-dk);border-radius:3px;width:70px;display:inline-block;vertical-align:middle;margin-left:8px;}
+  .bar-fill{height:100%;background:var(--green);border-radius:3px;}
+  .team-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--beige-md);}
+  .team-row:last-child{border-bottom:none;}
+  .team-name{font-size:0.83rem;font-weight:500;}.team-meta{font-size:0.75rem;color:var(--muted);}
+  .team-cost{font-size:0.83rem;font-weight:600;color:var(--text);}
+  .pill{display:inline-block;padding:2px 7px;border-radius:20px;font-size:0.67rem;font-weight:600;}
+  .pill-ot{background:#fee2e2;color:var(--red);}
+  .loss-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .loss-card{background:var(--cream);border-radius:8px;padding:12px 14px;border:1px solid var(--beige-dk);}
+  .loss-card .l-label{font-size:0.68rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+  .loss-card .l-val{font-size:1.2rem;font-weight:600;}
+  .loss-card .l-sub{font-size:0.72rem;color:var(--muted);margin-top:3px;}
+  .footer{background:var(--green);padding:16px 32px;text-align:center;}
+  .footer p{font-size:0.72rem;color:rgba(255,255,255,0.5);line-height:1.6;}
+  .footer a{color:rgba(255,255,255,0.7);text-decoration:none;}
+  @media(max-width:600px){.section{padding:16px 18px;}.kpi-row{grid-template-columns:1fr 1fr;}.divider{margin:0 18px;}.header{padding:20px 18px 16px;}.service-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div style="margin-bottom:6px;"><span class="badge badge-foh">FOH Manager</span></div>
+        <h1>Found Oyster</h1>
+        <div class="header-sub">Wednesday, April 22</div>
+      </div>
+      <div class="header-meta">Last Word Hospitality<br>Morning Brief</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Last Night · Floor Summary</div>
+    <div class="kpi-row">
+      <div class="kpi">
+        <div class="kpi-label">Covers</div>
+        <div class="kpi-val green">57</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Avg / Guest</div>
+        <div class="kpi-val green">$156.67</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Net Sales</div>
+        <div class="kpi-val green">$8,930</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section alt">
+    <div class="section-label">Service Breakdown</div>
+    
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="label">5pm – 7pm seating</div>
+        <div class="val">$0</div>
+        <div class="sub">0% of revenue · $0.00/order</div>
+      </div>
+      <div class="service-card">
+        <div class="label">7pm – 10pm seating</div>
+        <div class="val">$0</div>
+        <div class="sub">0% of revenue · $0.00/order</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">What Sold · Top Items</div>
+    <div class="section-card">
+      <table class="items-table">
+        <thead><tr><th>Item</th><th style="text-align:center;">Count</th><th style="text-align:right;">Rev</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Vinlands</td>
+            <td style="text-align:center;">203 <span class="bar-wrap"><span class="bar-fill" style="width:100%;"></span></span></td>
+            <td style="text-align:right;">$5,092</td>
+          </tr>
+          <tr>
+            <td>Norumbega</td>
+            <td style="text-align:center;">135 <span class="bar-wrap"><span class="bar-fill" style="width:66%;"></span></span></td>
+            <td style="text-align:right;">$3,016</td>
+          </tr>
+          <tr>
+            <td>Peel & Eat Prawns</td>
+            <td style="text-align:center;">28 <span class="bar-wrap"><span class="bar-fill" style="width:13%;"></span></span></td>
+            <td style="text-align:right;">$932</td>
+          </tr>
+          <tr>
+            <td>Lobster Roll <span style="color:var(--amber);font-size:0.72rem;">★ $45</span></td>
+            <td style="text-align:center;">14 <span class="bar-wrap"><span class="bar-fill" style="width:6%;"></span></span></td>
+            <td style="text-align:right;">$624</td>
+          </tr>
+          <tr>
+            <td>Scallop Tostada</td>
+            <td style="text-align:center;">17 <span class="bar-wrap"><span class="bar-fill" style="width:8%;"></span></span></td>
+            <td style="text-align:right;">$484</td>
+          </tr>
+          <tr>
+            <td>Bar Steak <span style="color:var(--amber);font-size:0.72rem;">★ $46</span></td>
+            <td style="text-align:center;">9 <span class="bar-wrap"><span class="bar-fill" style="width:4%;"></span></span></td>
+            <td style="text-align:right;">$410</td>
+          </tr>
+          <tr>
+            <td>Littleneck Clams</td>
+            <td style="text-align:center;">17 <span class="bar-wrap"><span class="bar-fill" style="width:8%;"></span></span></td>
+            <td style="text-align:right;">$319</td>
+          </tr>
+          <tr>
+            <td>Smoked Trout Dip</td>
+            <td style="text-align:center;">12 <span class="bar-wrap"><span class="bar-fill" style="width:5%;"></span></span></td>
+            <td style="text-align:right;">$312</td>
+          </tr>
+          <tr>
+            <td>Baywatch Platter <span style="color:var(--amber);font-size:0.72rem;">★ $98</span></td>
+            <td style="text-align:center;">3 <span class="bar-wrap"><span class="bar-fill" style="width:1%;"></span></span></td>
+            <td style="text-align:right;">$294</td>
+          </tr>
+          <tr>
+            <td>Hanger Steak</td>
+            <td style="text-align:center;">21 <span class="bar-wrap"><span class="bar-fill" style="width:10%;"></span></span></td>
+            <td style="text-align:right;">$282</td>
+          </tr></tbody>
+      </table>
+    </div>
+    <div style='font-size:0.72rem;color:var(--muted);margin-top:8px;'>★ Baywatch Platter is your highest revenue-per-plate item ($98/ea). Strong upsell tonight.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section alt">
+    <div class="section-label">Your Team · 2026-04-22</div>
+    <div class="section-card">
+      <div class="team-row">
+        <div>
+          <div class="team-name">Meredith Brugler</div>
+          <div class="team-meta">8.9 hrs <span class="pill pill-ot">+0.9h OT</span></div>
+        </div>
+        <div class="team-cost" style="">$215.61</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Christian Rodriguez</div>
+          <div class="team-meta">8.7 hrs <span class="pill pill-ot">+0.7h OT</span></div>
+        </div>
+        <div class="team-cost" style="">$198.85</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Carlos Paniagua</div>
+          <div class="team-meta">8.7 hrs <span class="pill pill-ot">+0.7h OT</span></div>
+        </div>
+        <div class="team-cost" style="">$162.63</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Woodrow Rim</div>
+          <div class="team-meta">8.8 hrs <span class="pill pill-ot">+0.8h OT</span></div>
+        </div>
+        <div class="team-cost" style="">$158.12</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Ethan Turnil</div>
+          <div class="team-meta">8.3 hrs <span class="pill pill-ot">+0.3h OT</span></div>
+        </div>
+        <div class="team-cost" style="">$152.21</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Diggy Valois</div>
+          <div class="team-meta">8.3 hrs <span class="pill pill-ot">+0.3h OT</span></div>
+        </div>
+        <div class="team-cost" style="">$144.87</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Greta Akopov</div>
+          <div class="team-meta">7.2 hrs </div>
+        </div>
+        <div class="team-cost" style="">$124.33</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Ani Keshamouni</div>
+          <div class="team-meta">6.7 hrs </div>
+        </div>
+        <div class="team-cost" style="">$119.67</div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Maryna Okhrimenko</div>
+          <div class="team-meta">6.9 hrs </div>
+        </div>
+        <div class="team-cost" style="">$118.83</div>
+      </div>
+      <div class="team-row" style="background:var(--green-xlt);">
+        <div>
+          <div class="team-name" style="font-weight:600;">FOH Total</div>
+          <div class="team-meta">72.5 hrs</div>
+        </div>
+        <div class="team-cost">$1,395.12</div>
+      </div></div>
+    <div style="margin-top:8px;font-size:0.72rem;color:var(--red);">⚠ Meredith Brugler logged 0.9 hours overtime. Flag for next scheduling.</div><br><div style="margin-top:8px;font-size:0.72rem;color:var(--red);">⚠ Christian Rodriguez logged 0.7 hours overtime. Flag for next scheduling.</div><br><div style="margin-top:8px;font-size:0.72rem;color:var(--red);">⚠ Carlos Paniagua logged 0.7 hours overtime. Flag for next scheduling.</div><br><div style="margin-top:8px;font-size:0.72rem;color:var(--red);">⚠ Woodrow Rim logged 0.8 hours overtime. Flag for next scheduling.</div><br><div style="margin-top:8px;font-size:0.72rem;color:var(--red);">⚠ Ethan Turnil logged 0.3 hours overtime. Flag for next scheduling.</div><br><div style="margin-top:8px;font-size:0.72rem;color:var(--red);">⚠ Diggy Valois logged 0.3 hours overtime. Flag for next scheduling.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Loss Management</div>
+    <div class="loss-row">
+      <div class="loss-card">
+        <div class="l-label">Voids</div>
+        <div class="l-val" style="color:var(--red);">$0.00</div>
+        <div class="l-sub">0 checks</div>
+      </div>
+      <div class="loss-card">
+        <div class="l-label">Discounts</div>
+        <div class="l-val" style="color:var(--amber);">$0.00</div>
+        <div class="l-sub">0 applied</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Relish Morning Brief · Found Oyster FOH · 2026-04-22<br>
+    <a href="mailto:xandre@gotrelish.com">Contact Relish</a> · Data: Toast POS</p>
+  </div>
+
+</div>
+</body>
+</html>
