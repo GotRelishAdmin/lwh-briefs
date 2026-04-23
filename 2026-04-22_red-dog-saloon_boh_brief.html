@@ -92,6 +92,22 @@
     border:1px solid var(--line-soft);padding:22px 24px;border-radius:2px;}
   .placeholder-title{font-family:'Old Standard TT',serif;font-style:italic;font-size:18px;margin-bottom:6px;}
   .placeholder-text{font-size:13px;color:var(--ink-soft);line-height:1.55;}
+  /* RESY — cover forecast + large parties */
+  .forecast-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+  .party-dist{background:var(--cream-deep);padding:16px 20px;border-radius:2px;border:1px solid var(--line-soft);}
+  .party-dist-row{display:grid;grid-template-columns:60px 1fr 40px;gap:10px;align-items:center;padding:4px 0;}
+  .party-dist-k{font-family:'Old Standard TT',serif;font-style:italic;font-size:15px;color:var(--ink);}
+  .party-dist-bar{height:8px;background:var(--line-soft);border-radius:2px;overflow:hidden;}
+  .party-dist-bar-fill{height:100%;background:var(--orange);border-radius:2px;}
+  .party-dist-n{text-align:right;font-family:'Old Standard TT',serif;font-size:15px;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .large-list{background:var(--cream-deep);border-radius:2px;}
+  .large-row{display:grid;grid-template-columns:80px 1fr 52px;gap:14px;padding:12px 18px;
+    align-items:baseline;border-top:1px solid var(--line-soft);}
+  .large-row:first-child{border-top:none;}
+  .large-time{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mute);letter-spacing:.04em;}
+  .large-name{font-family:'Old Standard TT',serif;font-size:16px;color:var(--ink);}
+  .large-notes{font-size:11px;color:var(--mute);margin-top:2px;}
+  .large-size{text-align:right;font-family:'Old Standard TT',serif;font-size:22px;font-variant-numeric:tabular-nums;color:var(--orange);}
   /* FOOTER */
   .brief-foot{background:var(--green);color:var(--cream);padding:24px 44px 28px;}
   .brief-foot-row{display:flex;justify-content:space-between;align-items:flex-end;}
@@ -112,6 +128,8 @@
     .stat-row-3{grid-template-columns:repeat(2,1fr);}
     .item-row{grid-template-columns:24px 1fr 40px 60px 70px;gap:8px;font-size:13px;}
     .hourchart{gap:4px;}
+    .forecast-row{grid-template-columns:1fr;}
+    .large-row{grid-template-columns:60px 1fr 40px;gap:8px;}
   }
 </style>
 </head>
@@ -456,6 +474,23 @@
     <div class="placeholder">
       <div class="placeholder-title">MarginEdge data coming soon</div>
       <div class="placeholder-text">Once connected, this section shows your top 5 ingredients with week-over-week price changes and recommended swaps.</div>
+    </div>
+  </section>
+  
+  <div class="rule"></div>
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">06</span>
+        <div>
+          <h2 class="sec-title">Tonight's prep plan</h2>
+          <div class="sec-sub">From Resy</div>
+        </div>
+      </div>
+    </div>
+    <div class="placeholder">
+      <div class="placeholder-title">walk-in only, no Resy</div>
+      <div class="placeholder-text">This venue has no Resy reservation feed — tonight's prep is based on historical volume only.</div>
     </div>
   </section>
 

@@ -108,6 +108,39 @@
   .crew-total .crew-name{color:var(--cream);}
   .crew-total .crew-hrs{color:rgba(245,239,227,.65);}
   .crew-total .crew-pay{color:var(--cream);}
+  /* RESY — spread chart, res list, notify */
+  .spread{display:grid;grid-template-columns:repeat(16,1fr);gap:4px;
+    background:var(--cream-deep);padding:22px 20px 14px;border-radius:2px;height:180px;align-items:end;}
+  .spread-col{display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;}
+  .spread-bar{width:80%;background:var(--green);border-radius:2px 2px 0 0;min-height:2px;position:relative;}
+  .spread-bar-peak{background:var(--orange);}
+  .spread-n{font-family:'Old Standard TT',serif;font-size:12px;font-variant-numeric:tabular-nums;margin-top:4px;color:var(--ink);}
+  .spread-t{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--mute);margin-top:2px;letter-spacing:.02em;white-space:nowrap;}
+  .res-list{background:var(--cream-deep);border-radius:2px;}
+  .res-row{display:grid;grid-template-columns:78px 1fr 52px;gap:14px;padding:10px 16px;
+    border-top:1px solid var(--line-soft);align-items:baseline;}
+  .res-row:first-child{border-top:none;}
+  .res-row-vip{background:#fff;border-left:2px solid var(--orange);}
+  .res-time{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--mute);}
+  .res-row-vip .res-time{color:var(--orange);}
+  .res-name{font-family:'Old Standard TT',serif;font-size:16px;color:var(--ink);}
+  .res-notes{font-size:11px;color:var(--mute);margin-top:2px;}
+  .res-vip-pin{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--orange);background:rgba(200,84,31,.12);padding:1px 5px;border-radius:1px;margin-right:6px;}
+  .res-size{text-align:right;font-family:'Old Standard TT',serif;font-size:18px;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .res-foot{margin-top:10px;font-size:12px;color:var(--mute);}
+  .notify-list{background:var(--cream-deep);border-radius:2px;padding:14px 18px;}
+  .notify-item{display:flex;justify-content:space-between;padding:6px 0;border-top:1px dashed var(--line-soft);font-size:13px;}
+  .notify-item:first-child{border-top:none;}
+  .notify-name{color:var(--ink);}
+  .notify-meta{color:var(--mute);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em;}
+  .wait-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .wait-card{background:var(--cream-deep);padding:16px 18px;border-radius:2px;border:1px solid var(--line-soft);}
+  .wait-k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:8px;}
+  .wait-v{font-family:'Old Standard TT',serif;font-size:28px;letter-spacing:-.015em;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .wait-v-ok{color:var(--green);}
+  .wait-v-warn{color:var(--orange);}
+  .wait-s{font-size:11px;color:var(--mute);margin-top:4px;}
   /* FOOTER */
   .brief-foot{background:var(--green);color:var(--cream);padding:24px 44px 28px;}
   .brief-foot-row{display:flex;justify-content:space-between;align-items:flex-end;}
@@ -129,6 +162,9 @@
     .service-grid{grid-template-columns:1fr;}
     .two-col{grid-template-columns:1fr;gap:20px;}
     .item-row{grid-template-columns:24px 1fr 40px 60px 70px;gap:8px;font-size:13px;}
+    .wait-row{grid-template-columns:1fr;}
+    .spread{grid-template-columns:repeat(8,1fr);}
+    .res-row{grid-template-columns:60px 1fr 40px;gap:8px;}
   }
 </style>
 </head>
@@ -384,6 +420,363 @@
       <div class="crew-name">FOH total <span class="crew-hrs">20.7 hrs</span></div>
       <div class="crew-pay">$369.73</div>
     </div>
+    </div>
+  </section>
+  
+  <div class="rule"></div>
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">06</span>
+        <div>
+          <h2 class="sec-title">Tonight on the book</h2>
+          <div class="sec-sub">Resy · 39 covers · 15 parties · 0 VIP · 0 large</div>
+        </div>
+      </div>
+    </div>
+    <div class="spread" style="grid-template-columns:repeat(32,1fr);">
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t">4pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">4</div>
+        <div class="spread-bar" style="height:40%"></div>
+        <div class="spread-t">5pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">2</div>
+        <div class="spread-bar" style="height:20%"></div>
+        <div class="spread-t">6pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">10</div>
+        <div class="spread-bar spread-bar-peak" style="height:100%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">8</div>
+        <div class="spread-bar" style="height:80%"></div>
+        <div class="spread-t">7pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">9</div>
+        <div class="spread-bar" style="height:90%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">4</div>
+        <div class="spread-bar" style="height:40%"></div>
+        <div class="spread-t">8pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">2</div>
+        <div class="spread-bar" style="height:20%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t">9pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t">10pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t">11pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div></div>
+    <div class="sec-foot">Spread of covers · 15-min buckets · peak in orange</div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">07</span>
+        <div>
+          <h2 class="sec-title">Upcoming reservations</h2>
+          <div class="sec-sub">Tonight · VIPs highlighted · scroll for more</div>
+        </div>
+      </div>
+    </div>
+    <div class="res-list">
+    <div class="res-row">
+      <div class="res-time">5:00pm</div>
+      <div>
+        <div class="res-name">Garrett Flores</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">5:00pm</div>
+      <div>
+        <div class="res-name">Courtney Hughey</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">6:00pm</div>
+      <div>
+        <div class="res-name">Mohammad-Ali Shaikh</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">6:30pm</div>
+      <div>
+        <div class="res-name">Melissa Falchini</div>
+        
+      </div>
+      <div class="res-size">4</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">6:30pm</div>
+      <div>
+        <div class="res-name">Ben Tam</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">6:30pm</div>
+      <div>
+        <div class="res-name">Pornsa Thammaraks</div>
+        
+      </div>
+      <div class="res-size">4</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">7:00pm</div>
+      <div>
+        <div class="res-name">michael kim</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">7:00pm</div>
+      <div>
+        <div class="res-name">tita cicognani</div>
+        
+      </div>
+      <div class="res-size">3</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">7:00pm</div>
+      <div>
+        <div class="res-name">Lauren Chung</div>
+        
+      </div>
+      <div class="res-size">3</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">7:30pm</div>
+      <div>
+        <div class="res-name">Charissa Morningstar</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">7:30pm</div>
+      <div>
+        <div class="res-name">Abhi vyas</div>
+        
+      </div>
+      <div class="res-size">3</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">7:30pm</div>
+      <div>
+        <div class="res-name">Lena Park</div>
+        
+      </div>
+      <div class="res-size">4</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">8:00pm</div>
+      <div>
+        <div class="res-name">Cody Ziglar</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">8:00pm</div>
+      <div>
+        <div class="res-name">Alexa Garingalao</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">8:30pm</div>
+      <div>
+        <div class="res-name">Mariah Winters</div>
+        <div class="res-notes">Nicole (rasa manager) sister! Splash app!</div>
+      </div>
+      <div class="res-size">2</div>
+    </div></div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">08</span>
+        <div>
+          <h2 class="sec-title">Notify list · tonight</h2>
+          <div class="sec-sub">Resy Notify requests for today's service</div>
+        </div>
+      </div>
+    </div>
+    <div class="placeholder"><div class="placeholder-title">No one on notify</div><div class="placeholder-text">No active Resy Notify requests for tonight — demand is matched.</div></div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">09</span>
+        <div>
+          <h2 class="sec-title">Waitlist performance</h2>
+          <div class="sec-sub">Resy Waitlist · 7-day trailing averages</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="wait-row">
+      <div class="wait-card">
+        <div class="wait-k">Avg quoted wait</div>
+        <div class="wait-v">15 min</div>
+        <div class="wait-s">Last 7 days · 2 entries</div>
+      </div>
+      <div class="wait-card">
+        <div class="wait-k">Avg actual wait</div>
+        <div class="wait-v">117 min</div>
+        <div class="wait-s">Last 7 days</div>
+      </div>
+      <div class="wait-card">
+        <div class="wait-k">Quote accuracy</div>
+        <div class="wait-v wait-v-warn">+102 min</div>
+        <div class="wait-s">Over-quoted by 102 min</div>
+      </div>
     </div>
   </section>
 

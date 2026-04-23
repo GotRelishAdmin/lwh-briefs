@@ -142,6 +142,21 @@
     font-variant-numeric:tabular-nums;margin-bottom:4px;}
   .loss-ok{color:var(--green);} .loss-warn{color:var(--orange);}
   .loss-s{font-size:12px;color:var(--mute);}
+  /* RESY — week ahead tiles */
+  .week-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;}
+  .week-tile{padding:14px 10px 14px;background:var(--cream-deep);border:1px solid var(--line-soft);
+    border-radius:2px;text-align:center;}
+  .week-tile-today{background:#fff;border:1px solid var(--orange);box-shadow:0 0 0 1px var(--orange);}
+  .week-tile-wkd{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:4px;}
+  .week-tile-today .week-tile-wkd{color:var(--orange);}
+  .week-tile-day{font-family:'Old Standard TT',serif;font-style:italic;font-size:13px;
+    color:var(--mute);margin-bottom:8px;}
+  .week-tile-covers{font-family:'Old Standard TT',serif;font-size:24px;line-height:1;
+    letter-spacing:-.012em;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .week-tile-today .week-tile-covers{color:var(--orange);}
+  .week-tile-parties{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mute);margin-top:6px;letter-spacing:.05em;}
+  .resy-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
   /* FOOTER */
   .brief-foot{background:var(--green);color:var(--cream);padding:24px 44px 28px;}
   .brief-foot-row{display:flex;justify-content:space-between;align-items:flex-end;}
@@ -151,6 +166,10 @@
   .foot-right{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;opacity:.85;}
   .foot-link{color:var(--orange);text-decoration:none;border-bottom:1px solid rgba(200,84,31,.4);padding-bottom:1px;}
   .foot-dot{opacity:.5;margin:0 10px;}
+  @media(max-width:900px){
+    .week-grid{grid-template-columns:repeat(4,1fr);}
+    .resy-stat-row{grid-template-columns:repeat(2,1fr);}
+  }
   @media(max-width:760px){
     .brief{margin:0;}
     .masthead,.sec,.brief-foot{padding-left:22px;padding-right:22px;}
@@ -681,6 +700,91 @@
             <div class="loss-s">529 applied</div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="rule"></div>
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">07</span>
+        <div>
+          <h2 class="sec-title">Tonight &amp; the week ahead</h2>
+          <div class="sec-sub">From Resy · booked reservations · excludes cancellations</div>
+        </div>
+      </div>
+    </div>
+    <div class="resy-stat-row">
+      <div class="stat stat-accent">
+        <div class="stat-label">Tonight · covers</div>
+        <div class="stat-value">74</div>
+        <div class="stat-sub">23 reservations</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Next 7 days</div>
+        <div class="stat-value">512</div>
+        <div class="stat-sub">covers forecast</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">VIPs tonight</div>
+        <div class="stat-value">0</div>
+        <div class="stat-sub">3 party 6+ · 0 on notify</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Peak day</div>
+        <div class="stat-value">Fri</div>
+        <div class="stat-sub">181 covers booked</div>
+      </div>
+    </div>
+    <div class="week-grid">
+      <div class="week-tile week-tile-today">
+        <div class="week-tile-wkd">Today</div>
+        <div class="week-tile-day">4/23</div>
+        <div class="week-tile-covers">74</div>
+        <div class="week-tile-parties">23 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Fri</div>
+        <div class="week-tile-day">4/24</div>
+        <div class="week-tile-covers">181</div>
+        <div class="week-tile-parties">53 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Sat</div>
+        <div class="week-tile-day">4/25</div>
+        <div class="week-tile-covers">173</div>
+        <div class="week-tile-parties">35 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Sun</div>
+        <div class="week-tile-day">4/26</div>
+        <div class="week-tile-covers">58</div>
+        <div class="week-tile-parties">22 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Mon</div>
+        <div class="week-tile-day">4/27</div>
+        <div class="week-tile-covers">26</div>
+        <div class="week-tile-parties">9 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Tue</div>
+        <div class="week-tile-day">4/28</div>
+        <div class="week-tile-covers">30</div>
+        <div class="week-tile-parties">11 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Wed</div>
+        <div class="week-tile-day">4/29</div>
+        <div class="week-tile-covers">26</div>
+        <div class="week-tile-parties">9 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Thu</div>
+        <div class="week-tile-day">4/30</div>
+        <div class="week-tile-covers">18</div>
+        <div class="week-tile-parties">8 res</div>
       </div>
     </div>
   </section>
