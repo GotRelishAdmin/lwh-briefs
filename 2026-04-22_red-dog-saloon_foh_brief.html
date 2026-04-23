@@ -51,6 +51,14 @@
   .stat-accent .stat-value{color:var(--orange);}
   .stat-ok .stat-value{color:var(--green);}
   .stat-sub{margin-top:8px;font-size:12px;color:var(--mute);}
+  .stat-delta{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.05em;margin-left:6px;font-weight:600;}
+  .d-up{color:#2a6e3a;} .d-down{color:#b83227;} .d-flat{color:var(--mute);}
+  .secondary-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+  .secondary{background:var(--cream);padding:12px 16px;border-radius:2px;border:1px dashed var(--line-soft);}
+  .secondary-k{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:4px;}
+  .secondary-v{font-family:'Old Standard TT',serif;font-size:22px;font-variant-numeric:tabular-nums;color:var(--ink);}
   /* SERVICE GRID */
   .service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
   .service-block{background:var(--cream-deep);padding:20px 22px;border-radius:2px;border:1px solid var(--line-soft);}
@@ -194,22 +202,35 @@
         <span class="sec-n">01</span>
         <div>
           <h2 class="sec-title">Floor, last night</h2>
-          <div class="sec-sub">Covers · avg / guest · net</div>
+          <div class="sec-sub">Covers · avg / guest · net vs. Wed Apr 15</div>
         </div>
       </div>
     </div>
     <div class="stat-row stat-row-3">
       <div class="stat">
-        <div class="stat-label">Covers</div>
-        <div class="stat-value">121</div>
+        <div class="stat-label">Covers <span style="font-family:'Inter Tight';font-size:9px;letter-spacing:.08em;color:var(--mute);">(guests)</span></div>
+        <div class="stat-value">123</div>
+        <div class="stat-sub"><span class="stat-delta d-down">↓23%</span></div>
       </div>
       <div class="stat stat-accent">
         <div class="stat-label">Avg / Guest</div>
-        <div class="stat-value">$32.38</div>
+        <div class="stat-value">$31.85</div>
+        <div class="stat-sub"><span class="stat-delta d-up">↑6%</span></div>
       </div>
       <div class="stat">
         <div class="stat-label">Net Sales</div>
         <div class="stat-value">$3,918</div>
+        <div class="stat-sub"><span class="stat-delta d-down">↓18%</span></div>
+      </div>
+    </div>
+    <div class="secondary-row">
+      <div class="secondary">
+        <div class="secondary-k">Orders (checks)</div>
+        <div class="secondary-v">121 <span class="stat-delta d-down">↓22%</span></div>
+      </div>
+      <div class="secondary">
+        <div class="secondary-k">Avg / Order</div>
+        <div class="secondary-v">$32.38 <span class="stat-delta d-up">↑6%</span></div>
       </div>
     </div>
   </section>

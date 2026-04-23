@@ -51,6 +51,9 @@
   .stat-accent .stat-value{color:var(--orange);}
   .stat-ok .stat-value{color:var(--green);}
   .stat-sub{margin-top:8px;font-size:12px;color:var(--mute);}
+  .stat-delta{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.05em;margin-left:6px;font-weight:600;}
+  .d-up{color:#2a6e3a;} .d-down{color:#b83227;} .d-flat{color:var(--mute);}
   /* HOUR CHART */
   .hourchart{display:grid;grid-template-columns:repeat(9,1fr);gap:10px;
     background:var(--cream-deep);padding:20px 20px 14px;border-radius:2px;height:160px;}
@@ -159,24 +162,25 @@
         <span class="sec-n">01</span>
         <div>
           <h2 class="sec-title">Kitchen, last night</h2>
-          <div class="sec-sub">Food volume · revenue · labor share</div>
+          <div class="sec-sub">Food volume · revenue · labor share vs. Wed Apr 15</div>
         </div>
       </div>
     </div>
     <div class="stat-row stat-row-3">
       <div class="stat">
-        <div class="stat-label">Covers Served</div>
-        <div class="stat-value">23</div>
+        <div class="stat-label">Covers Served <span style="font-family:'Inter Tight';font-size:9px;letter-spacing:.08em;color:var(--mute);">(guests)</span></div>
+        <div class="stat-value">72</div>
+        <div class="stat-sub"><span class="stat-delta d-up">↑85%</span></div>
       </div>
       <div class="stat stat-accent">
         <div class="stat-label">Food Revenue</div>
         <div class="stat-value">$5,095</div>
-        <div class="stat-sub">103% of net sales</div>
+        <div class="stat-sub">103% of net sales <span class="stat-delta d-up">↑130%</span></div>
       </div>
       <div class="stat stat-ok">
         <div class="stat-label">BOH Labor</div>
         <div class="stat-value">12.1%</div>
-        <div class="stat-sub">$599 · of food sales</div>
+        <div class="stat-sub">$599 · of food sales </div>
       </div>
     </div>
   </section>
@@ -258,7 +262,7 @@
         <div class="hbar-n"></div>
       </div>
     </div>
-    <div class="sec-foot">Peak 3pm–4pm (0 orders) · 23 total covers</div>
+    <div class="sec-foot">Peak 3pm–4pm (0 orders) · 72 total covers</div>
   </section>
 
   <div class="rule"></div>

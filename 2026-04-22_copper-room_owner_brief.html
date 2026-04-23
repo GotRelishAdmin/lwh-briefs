@@ -80,6 +80,16 @@
   .stat-ok .stat-value{color:var(--green);}
   .stat-warn .stat-value{color:var(--orange);}
   .stat-sub{margin-top:8px;font-size:12px;color:var(--mute);}
+  .stat-delta{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.05em;margin-left:6px;font-weight:600;}
+  .d-up{color:#2a6e3a;}
+  .d-down{color:#b83227;}
+  .d-flat{color:var(--mute);}
+  .secondary-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+  .secondary{background:var(--cream);padding:12px 16px;border-radius:2px;border:1px dashed var(--line-soft);}
+  .secondary-k{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:4px;}
+  .secondary-v{font-family:'Old Standard TT',serif;font-size:22px;font-variant-numeric:tabular-nums;color:var(--ink);}
   /* CALLOUTS */
   .callout-stack{display:flex;flex-direction:column;gap:10px;}
   .callout{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:16px 18px;border-radius:2px;align-items:start;}
@@ -218,7 +228,7 @@
       
     <div class="group-totals">
       <div><span class="kv-k">Group net</span><span class="kv-v">$58,942</span></div>
-      <div><span class="kv-k">Covers</span><span class="kv-v">461</span></div>
+      <div><span class="kv-k">Covers</span><span class="kv-v">903</span></div>
       <div><span class="kv-k">Top room</span><span class="kv-v">Hermon&#x27;s</span></div>
     </div>
     </div>
@@ -230,7 +240,7 @@
         </div>
         <div class="venue-sales">$4,956</div>
         <div class="vbar"><div class="vbar-fill" style="width:35%"></div></div>
-        <div class="venue-covers">23 covers · $215.46/guest</div>
+        <div class="venue-covers">72 covers · $68.83/guest</div>
       </a>
       <a class="venue-tile" href="2026-04-22_barra-santos_owner_brief.html">
         <div class="venue-head">
@@ -239,7 +249,7 @@
         </div>
         <div class="venue-sales">$8,808</div>
         <div class="vbar"><div class="vbar-fill" style="width:63%"></div></div>
-        <div class="venue-covers">51 covers · $172.71/guest</div>
+        <div class="venue-covers">124 covers · $71.03/guest</div>
       </a>
       <a class="venue-tile" href="2026-04-22_red-dog-saloon_owner_brief.html">
         <div class="venue-head">
@@ -248,7 +258,7 @@
         </div>
         <div class="venue-sales">$3,918</div>
         <div class="vbar"><div class="vbar-fill" style="width:28%"></div></div>
-        <div class="venue-covers">121 covers · $32.38/guest</div>
+        <div class="venue-covers">123 covers · $31.85/guest</div>
       </a>
       <a class="venue-tile" href="2026-04-22_queens_owner_brief.html">
         <div class="venue-head">
@@ -257,7 +267,7 @@
         </div>
         <div class="venue-sales">$9,383</div>
         <div class="vbar"><div class="vbar-fill" style="width:67%"></div></div>
-        <div class="venue-covers">49 covers · $191.49/guest</div>
+        <div class="venue-covers">117 covers · $80.20/guest</div>
       </a>
       <a class="venue-tile" href="2026-04-22_found-oyster_owner_brief.html">
         <div class="venue-head">
@@ -266,7 +276,7 @@
         </div>
         <div class="venue-sales">$8,930</div>
         <div class="vbar"><div class="vbar-fill" style="width:64%"></div></div>
-        <div class="venue-covers">57 covers · $156.67/guest</div>
+        <div class="venue-covers">118 covers · $75.68/guest</div>
       </a>
       <a class="venue-tile" href="2026-04-22_hermons_owner_brief.html">
         <div class="venue-head">
@@ -275,7 +285,7 @@
         </div>
         <div class="venue-sales">$13,945</div>
         <div class="vbar"><div class="vbar-fill" style="width:100%"></div></div>
-        <div class="venue-covers">77 covers · $181.10/guest</div>
+        <div class="venue-covers">173 covers · $80.61/guest</div>
       </a>
       <a class="venue-tile venue-self" href="2026-04-22_copper-room_owner_brief.html">
         <div class="venue-head">
@@ -284,7 +294,7 @@
         </div>
         <div class="venue-sales">$9,003</div>
         <div class="vbar"><div class="vbar-fill" style="width:64%"></div></div>
-        <div class="venue-covers">83 covers · $108.47/guest</div>
+        <div class="venue-covers">176 covers · $51.15/guest</div>
       </a>
     </div>
   </section>
@@ -297,7 +307,7 @@
         <span class="sec-n">02</span>
         <div>
           <h2 class="sec-title">The Copper Room &middot; last night</h2>
-          <div class="sec-sub">House summary — Wednesday, April 22</div>
+          <div class="sec-sub">House summary — Wednesday, April 22 vs. Wed Apr 15</div>
         </div>
       </div>
     </div>
@@ -305,19 +315,32 @@
       <div class="stat stat-accent">
         <div class="stat-label">Net Sales</div>
         <div class="stat-value">$9,003</div>
+        <div class="stat-sub"><span class="stat-delta d-up">↑45%</span></div>
       </div>
       <div class="stat">
-        <div class="stat-label">Covers</div>
-        <div class="stat-value">83</div>
+        <div class="stat-label">Covers <span style="font-family:'Inter Tight';font-size:9px;letter-spacing:.08em;color:var(--mute);">(guests)</span></div>
+        <div class="stat-value">176</div>
+        <div class="stat-sub"><span class="stat-delta d-up">↑40%</span></div>
       </div>
       <div class="stat">
         <div class="stat-label">Avg / Guest</div>
-        <div class="stat-value">$108.47</div>
+        <div class="stat-value">$51.15</div>
+        <div class="stat-sub"><span class="stat-delta d-up">↑4%</span></div>
       </div>
       <div class="stat ">
         <div class="stat-label">Labor %</div>
         <div class="stat-value">32.0%</div>
-        <div class="stat-sub">Target ≤ 35%</div>
+        <div class="stat-sub">Target ≤ 35% </div>
+      </div>
+    </div>
+    <div class="secondary-row">
+      <div class="secondary">
+        <div class="secondary-k">Orders (checks)</div>
+        <div class="secondary-v">83 <span class="stat-delta d-up">↑20%</span></div>
+      </div>
+      <div class="secondary">
+        <div class="secondary-k">Avg / Order</div>
+        <div class="secondary-v">$108.47 <span class="stat-delta d-up">↑20%</span></div>
       </div>
     </div>
   </section>
