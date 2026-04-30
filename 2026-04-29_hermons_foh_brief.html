@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hermon&#x27;s · FOH Brief · 2026-04-29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange:#C8541F; --orange-deep:#A34418;
+    --cream:#F5EFE3; --cream-deep:#ECE3D2;
+    --green:#2C4A3E; --green-deep:#1F3930;
+    --ink:#1B1410; --ink-soft:#3A2F26;
+    --mute:#7A6C5C; --line:#D9CFBA; --line-soft:#E4DAC4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--cream-deep);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;
+    font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .brief{max-width:960px;margin:32px auto 80px;background:var(--cream);
+    box-shadow:0 1px 0 rgba(27,20,16,.04),0 24px 60px -30px rgba(27,20,16,.18);}
+  .masthead{background:var(--green);color:var(--cream);padding:28px 44px 40px;}
+  .masthead-top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.7;
+    padding-bottom:18px;border-bottom:1px solid rgba(245,239,227,.18);}
+  .masthead-mid{display:flex;justify-content:space-between;align-items:flex-end;padding-top:22px;gap:24px;}
+  .masthead-role{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--orange);
+    background:rgba(200,84,31,.14);border:1px solid rgba(200,84,31,.35);
+    padding:4px 10px;margin-bottom:14px;border-radius:2px;}
+  .masthead-title{font-family:'Old Standard TT',serif;font-weight:400;font-size:72px;
+    line-height:.95;letter-spacing:-.015em;color:var(--cream);}
+  .masthead-sub{margin-top:10px;font-family:'Old Standard TT',serif;font-style:italic;font-size:17px;opacity:.75;}
+  .masthead-right{text-align:right;font-size:13px;line-height:1.6;opacity:.85;padding-bottom:6px;}
+  .masthead-date{font-family:'Old Standard TT',serif;font-style:italic;font-size:18px;margin-bottom:4px;}
+  .sec{padding:32px 44px;}
+  .rule{height:0;margin:0 44px;border-top:1px solid var(--line);}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:22px;}
+  .sec-head-l{display:flex;align-items:baseline;gap:14px;}
+  .sec-n{font-family:'Old Standard TT',serif;font-style:italic;font-size:18px;color:var(--orange);min-width:24px;}
+  .sec-title{font-family:'Old Standard TT',serif;font-weight:400;font-size:28px;
+    line-height:1.1;letter-spacing:-.008em;color:var(--ink);}
+  .sec-sub{margin-top:4px;font-size:13px;color:var(--mute);}
+  .sec-foot{margin-top:14px;font-size:13px;color:var(--mute);}
+  .stat-row{display:grid;gap:14px;}
+  .stat-row-3{grid-template-columns:repeat(3,1fr);}
+  .stat{background:var(--cream-deep);padding:18px 20px 20px;border-radius:2px;border:1px solid var(--line-soft);}
+  .stat-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:10px;}
+  .stat-value{font-family:'Old Standard TT',serif;font-size:44px;line-height:1;
+    letter-spacing:-.015em;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .stat-accent .stat-value{color:var(--orange);}
+  .stat-ok .stat-value{color:var(--green);}
+  .stat-sub{margin-top:8px;font-size:12px;color:var(--mute);}
+  .stat-delta{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.05em;margin-left:6px;font-weight:600;}
+  .d-up{color:#2a6e3a;} .d-down{color:#b83227;} .d-flat{color:var(--mute);}
+  .secondary-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+  .secondary{background:var(--cream);padding:12px 16px;border-radius:2px;border:1px dashed var(--line-soft);}
+  .secondary-k{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:4px;}
+  .secondary-v{font-family:'Old Standard TT',serif;font-size:22px;font-variant-numeric:tabular-nums;color:var(--ink);}
+  /* SERVICE GRID */
+  .service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .service-block{background:var(--cream-deep);padding:20px 22px;border-radius:2px;border:1px solid var(--line-soft);}
+  .service-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:10px;}
+  .service-val{font-family:'Old Standard TT',serif;font-size:32px;letter-spacing:-.015em;
+    font-variant-numeric:tabular-nums;margin-bottom:4px;}
+  .service-sub{font-size:12px;color:var(--mute);}
+  /* ITEMS */
+  .items{background:var(--cream-deep);border-radius:2px;}
+  .item-row{display:grid;grid-template-columns:32px 1fr 56px 1.2fr 80px 80px;gap:14px;
+    padding:12px 18px;align-items:center;border-top:1px solid var(--line-soft);font-size:14px;}
+  .item-row:first-child{border-top:none;}
+  .item-row-head{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);}
+  .item-rank{font-family:'Old Standard TT',serif;font-style:italic;color:var(--mute);font-size:15px;text-align:center;}
+  .item-name{color:var(--ink);display:flex;align-items:center;gap:8px;}
+  .item-count{color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+  .item-ibar{height:3px;background:var(--line-soft);border-radius:2px;overflow:hidden;}
+  .item-ibar-fill{height:100%;background:var(--orange);border-radius:2px;}
+  .item-rev{text-align:right;font-variant-numeric:tabular-nums;font-weight:500;}
+  .item-avg{text-align:right;font-variant-numeric:tabular-nums;color:var(--mute);font-size:13px;}
+  .item-flag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--orange);border:1px solid rgba(200,84,31,.35);padding:2px 5px;border-radius:1px;}
+  .item-kind{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--mute);}
+  /* MIX & LOSS */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:12px;}
+  .mix-row{display:grid;grid-template-columns:70px 1fr 130px;gap:14px;align-items:center;
+    padding:10px 0;border-top:1px dashed var(--line-soft);}
+  .mix-first{border-top:none !important;}
+  .mix-label{font-family:'Old Standard TT',serif;font-style:italic;font-size:17px;color:var(--ink);}
+  .mix-bar{height:6px;background:var(--line-soft);border-radius:2px;overflow:hidden;}
+  .mix-bar-fill-green{height:100%;background:var(--green);border-radius:2px;}
+  .mix-bar-fill-orange{height:100%;background:var(--orange);border-radius:2px;}
+  .mix-val{text-align:right;font-family:'Old Standard TT',serif;font-size:18px;font-variant-numeric:tabular-nums;}
+  .mix-pct{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mute);margin-left:6px;}
+  .loss-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .loss-k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:6px;}
+  .loss-v{font-family:'Old Standard TT',serif;font-size:28px;letter-spacing:-.015em;
+    font-variant-numeric:tabular-nums;margin-bottom:4px;}
+  .loss-ok{color:var(--green);} .loss-warn{color:var(--orange);}
+  .loss-s{font-size:12px;color:var(--mute);}
+  /* CREW */
+  .crew{display:flex;flex-direction:column;gap:2px;}
+  .crew-row{display:flex;justify-content:space-between;align-items:baseline;
+    background:var(--cream-deep);padding:16px 20px;border-radius:2px;}
+  .crew-name{font-size:16px;color:var(--ink);display:flex;align-items:baseline;gap:14px;}
+  .crew-hrs{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mute);letter-spacing:.02em;}
+  .crew-pay{font-family:'Old Standard TT',serif;font-size:19px;font-variant-numeric:tabular-nums;}
+  .crew-total{background:var(--green);color:var(--cream);margin-top:4px;}
+  .crew-total .crew-name{color:var(--cream);}
+  .crew-total .crew-hrs{color:rgba(245,239,227,.65);}
+  .crew-total .crew-pay{color:var(--cream);}
+  /* RESY — spread chart, res list, notify */
+  .spread{display:grid;grid-template-columns:repeat(16,1fr);gap:4px;
+    background:var(--cream-deep);padding:22px 20px 14px;border-radius:2px;height:180px;align-items:end;}
+  .spread-col{display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;}
+  .spread-bar{width:80%;background:var(--green);border-radius:2px 2px 0 0;min-height:2px;position:relative;}
+  .spread-bar-peak{background:var(--orange);}
+  .spread-n{font-family:'Old Standard TT',serif;font-size:12px;font-variant-numeric:tabular-nums;margin-top:4px;color:var(--ink);}
+  .spread-t{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--mute);margin-top:2px;letter-spacing:.02em;white-space:nowrap;}
+  .res-list{background:var(--cream-deep);border-radius:2px;}
+  .res-row{display:grid;grid-template-columns:78px 1fr 52px;gap:14px;padding:10px 16px;
+    border-top:1px solid var(--line-soft);align-items:baseline;}
+  .res-row:first-child{border-top:none;}
+  .res-row-vip{background:#fff;border-left:2px solid var(--orange);}
+  .res-time{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--mute);}
+  .res-row-vip .res-time{color:var(--orange);}
+  .res-name{font-family:'Old Standard TT',serif;font-size:16px;color:var(--ink);}
+  .res-notes{font-size:11px;color:var(--mute);margin-top:2px;}
+  .res-vip-pin{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--orange);background:rgba(200,84,31,.12);padding:1px 5px;border-radius:1px;margin-right:6px;}
+  .res-size{text-align:right;font-family:'Old Standard TT',serif;font-size:18px;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .res-foot{margin-top:10px;font-size:12px;color:var(--mute);}
+  .notify-list{background:var(--cream-deep);border-radius:2px;padding:14px 18px;}
+  .notify-item{display:flex;justify-content:space-between;padding:6px 0;border-top:1px dashed var(--line-soft);font-size:13px;}
+  .notify-item:first-child{border-top:none;}
+  .notify-name{color:var(--ink);}
+  .notify-meta{color:var(--mute);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em;}
+  .wait-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .wait-card{background:var(--cream-deep);padding:16px 18px;border-radius:2px;border:1px solid var(--line-soft);}
+  .wait-k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:8px;}
+  .wait-v{font-family:'Old Standard TT',serif;font-size:28px;letter-spacing:-.015em;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .wait-v-ok{color:var(--green);}
+  .wait-v-warn{color:var(--orange);}
+  .wait-s{font-size:11px;color:var(--mute);margin-top:4px;}
+  /* FOOTER */
+  .brief-foot{background:var(--green);color:var(--cream);padding:24px 44px 28px;}
+  .brief-foot-row{display:flex;justify-content:space-between;align-items:flex-end;}
+  .foot-mark{font-family:'Old Standard TT',serif;font-style:italic;font-size:24px;}
+  .foot-sub{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;opacity:.65;margin-top:4px;}
+  .foot-right{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;opacity:.85;}
+  .foot-link{color:var(--orange);text-decoration:none;border-bottom:1px solid rgba(200,84,31,.4);padding-bottom:1px;}
+  .foot-dot{opacity:.5;margin:0 10px;}
+  @media(max-width:760px){
+    .brief{margin:0;}
+    .masthead,.sec,.brief-foot{padding-left:22px;padding-right:22px;}
+    .rule{margin-left:22px;margin-right:22px;}
+    .masthead-title{font-size:46px;}
+    .masthead-mid{flex-direction:column;}
+    .masthead-right{text-align:left;}
+    .sec-head{flex-direction:column;}
+    .stat-row-3{grid-template-columns:repeat(2,1fr);}
+    .service-grid{grid-template-columns:1fr;}
+    .two-col{grid-template-columns:1fr;gap:20px;}
+    .item-row{grid-template-columns:24px 1fr 40px 60px 70px;gap:8px;font-size:13px;}
+    .wait-row{grid-template-columns:1fr;}
+    .spread{grid-template-columns:repeat(8,1fr);}
+    .res-row{grid-template-columns:60px 1fr 40px;gap:8px;}
+  }
+</style>
+</head>
+<body>
+<div class="brief">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <span>Relish · The Morning Brief</span>
+      <span>Last Word Hospitality</span>
+    </div>
+    <div class="masthead-mid">
+      <div>
+        <div class="masthead-role">Front of House</div>
+        <h1 class="masthead-title">Hermon&#x27;s</h1>
+        <div class="masthead-sub">Last Word Hospitality</div>
+      </div>
+      <div class="masthead-right">
+        <div class="masthead-date">Wednesday, April 29</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">01</span>
+        <div>
+          <h2 class="sec-title">Floor, last night</h2>
+          <div class="sec-sub">Covers · avg / guest · net vs. Wed Apr 22</div>
+        </div>
+      </div>
+    </div>
+    <div class="stat-row stat-row-3">
+      <div class="stat">
+        <div class="stat-label">Covers <span style="font-family:'Inter Tight';font-size:9px;letter-spacing:.08em;color:var(--mute);">(guests)</span></div>
+        <div class="stat-value">196</div>
+        <div class="stat-sub"><span class="stat-delta d-up">↑13%</span></div>
+      </div>
+      <div class="stat stat-accent">
+        <div class="stat-label">Avg / Guest</div>
+        <div class="stat-value">$67.68</div>
+        <div class="stat-sub"><span class="stat-delta d-down">↓16%</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Net Sales</div>
+        <div class="stat-value">$13,265</div>
+        <div class="stat-sub"><span class="stat-delta d-down">↓5%</span></div>
+      </div>
+    </div>
+    <div class="secondary-row">
+      <div class="secondary">
+        <div class="secondary-k">Orders (checks)</div>
+        <div class="secondary-v">86 <span class="stat-delta d-up">↑12%</span></div>
+      </div>
+      <div class="secondary">
+        <div class="secondary-k">Avg / Order</div>
+        <div class="secondary-v">$154.24 <span class="stat-delta d-down">↓15%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">02</span>
+        <div>
+          <h2 class="sec-title">Service breakdown</h2>
+          <div class="sec-sub">Seating windows · by cover and revenue</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="service-grid">
+      <div class="service-block">
+        <div class="service-kicker">First seating · 5–7pm</div>
+        <div class="service-val">$7,558</div>
+        <div class="service-sub">112 covers · $67.48/guest · 57% of night</div>
+      </div>
+      <div class="service-block">
+        <div class="service-kicker">Second seating · 7–10pm</div>
+        <div class="service-val">$5,398</div>
+        <div class="service-sub">80 covers · $67.47/guest · 41% of night</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">03</span>
+        <div>
+          <h2 class="sec-title">What sold</h2>
+          <div class="sec-sub">Top items by revenue · upsell opportunities</div>
+        </div>
+      </div>
+    </div>
+    <div class="items">
+      <div class="item-row item-row-head">
+        <div></div>
+        <div class="item-name">Item</div>
+        <div class="item-count">Count</div>
+        <div></div>
+        <div class="item-rev">Rev</div>
+        <div class="item-avg">Avg $</div>
+      </div>
+      
+    <div class="item-row">
+      <div class="item-rank">1</div>
+      <div class="item-name">Branzino <span class="item-flag">High $</span></div>
+      <div class="item-count">21</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:100%"></div></div>
+      <div class="item-rev">$908</div>
+      <div class="item-avg">$43.26</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">2</div>
+      <div class="item-name">Steak Frites <span class="item-flag">High $</span></div>
+      <div class="item-count">20</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:95%"></div></div>
+      <div class="item-rev">$869</div>
+      <div class="item-avg">$43.45</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">3</div>
+      <div class="item-name">Loaded Potato Fritter </div>
+      <div class="item-count">40</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:83%"></div></div>
+      <div class="item-rev">$762</div>
+      <div class="item-avg">$19.05</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">4</div>
+      <div class="item-name">Two sheet Vongole </div>
+      <div class="item-count">20</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:79%"></div></div>
+      <div class="item-rev">$720</div>
+      <div class="item-avg">$36.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">5</div>
+      <div class="item-name">Cheeseburger </div>
+      <div class="item-count">26</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:79%"></div></div>
+      <div class="item-rev">$720</div>
+      <div class="item-avg">$27.69</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">6</div>
+      <div class="item-name">HH Cheeseburger </div>
+      <div class="item-count">27</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:76%"></div></div>
+      <div class="item-rev">$696</div>
+      <div class="item-avg">$25.78</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">7</div>
+      <div class="item-name">Ragu Bolognese </div>
+      <div class="item-count">21</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:60%"></div></div>
+      <div class="item-rev">$546</div>
+      <div class="item-avg">$26.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">8</div>
+      <div class="item-name">HH Yuzu Margarita </div>
+      <div class="item-count">26</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:40%"></div></div>
+      <div class="item-rev">$370</div>
+      <div class="item-avg">$14.23</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">9</div>
+      <div class="item-name">Skillet Chocolate Chip </div>
+      <div class="item-count">31</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:39%"></div></div>
+      <div class="item-rev">$360</div>
+      <div class="item-avg">$11.61</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">10</div>
+      <div class="item-name">Yuzu Marg </div>
+      <div class="item-count">21</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:39%"></div></div>
+      <div class="item-rev">$360</div>
+      <div class="item-avg">$17.14</div>
+    </div>
+    </div>
+    <div class='sec-foot'>Steak Frites is your highest revenue-per-plate item ($43/ea). Strong upsell tonight.</div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">04</span>
+        <div>
+          <h2 class="sec-title">Sales mix &amp; loss</h2>
+          <div class="sec-sub">Food vs drink · voids &amp; comps</div>
+        </div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">Sales mix</div>
+        <div class="mix-row mix-first">
+          <div class="mix-label">Food</div>
+          <div class="mix-bar"><div class="mix-bar-fill-green" style="width:65%"></div></div>
+          <div class="mix-val">$8,670<span class="mix-pct">65%</span></div>
+        </div>
+        <div class="mix-row">
+          <div class="mix-label">Drink</div>
+          <div class="mix-bar"><div class="mix-bar-fill-orange" style="width:35%"></div></div>
+          <div class="mix-val">$4,595<span class="mix-pct">35%</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Loss management</div>
+        <div class="loss-row">
+          <div>
+            <div class="loss-k">Voids</div>
+            <div class="loss-v loss-warn">$26.00</div>
+            <div class="loss-s">2 checks</div>
+          </div>
+          <div>
+            <div class="loss-k">Discounts</div>
+            <div class="loss-v loss-warn">$534.25</div>
+            <div class="loss-s">15 applied</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">05</span>
+        <div>
+          <h2 class="sec-title">Your team</h2>
+          <div class="sec-sub">16 on the floor · 114.0 hrs</div>
+        </div>
+      </div>
+    </div>
+    <div class="crew">
+    <div class="crew-row">
+      <div class="crew-name">Danny Zacharczuk <span class="crew-hrs">7.9 hrs</span></div>
+      <div class="crew-pay">$158.00</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Jaimechaj Chaj <span class="crew-hrs">7.8 hrs</span></div>
+      <div class="crew-pay">$141.30</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Juan Arreaga <span class="crew-hrs">7.7 hrs</span></div>
+      <div class="crew-pay">$139.14</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Fernando Hernandez <span class="crew-hrs">7.5 hrs</span></div>
+      <div class="crew-pay">$135.54</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Helya Salarvand <span class="crew-hrs">6.9 hrs</span></div>
+      <div class="crew-pay">$123.84</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Adrien Peter <span class="crew-hrs">6.7 hrs</span></div>
+      <div class="crew-pay">$119.91</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Samuel Guevara <span class="crew-hrs">6.6 hrs</span></div>
+      <div class="crew-pay">$118.66</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Patrick Gray <span class="crew-hrs">6.4 hrs</span></div>
+      <div class="crew-pay">$114.37</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Karla Torres <span class="crew-hrs">6.3 hrs</span></div>
+      <div class="crew-pay">$113.30</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Lowam Eyasu <span class="crew-hrs">6.2 hrs</span></div>
+      <div class="crew-pay">$111.51</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Bela Barrientos <span class="crew-hrs">6.0 hrs</span></div>
+      <div class="crew-pay">$107.58</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Mackenzie Viera <span class="crew-hrs">8.0 hrs</span></div>
+      <div class="crew-pay">$0.00</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Alison Figas <span class="crew-hrs">6.9 hrs</span></div>
+      <div class="crew-pay">$0.00</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Vivian Moore <span class="crew-hrs">6.1 hrs</span></div>
+      <div class="crew-pay">$0.00</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Jose Munoz <span class="crew-hrs">7.6 hrs</span></div>
+      <div class="crew-pay">$0.00</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Reid Watson <span class="crew-hrs">9.4 hrs · <span style="color:var(--orange);font-size:10px;">+1.4h OT</span></span></div>
+      <div class="crew-pay">$0.00</div>
+    </div>
+    <div class="crew-row crew-total">
+      <div class="crew-name">FOH total <span class="crew-hrs">114.0 hrs</span></div>
+      <div class="crew-pay">$1,383.15</div>
+    </div>
+    </div>
+  </section>
+  
+  <div class="rule"></div>
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">06</span>
+        <div>
+          <h2 class="sec-title">Tonight on the book</h2>
+          <div class="sec-sub">Resy · 118 covers · 36 parties · 3 VIP · 3 large</div>
+        </div>
+      </div>
+    </div>
+    <div class="spread" style="grid-template-columns:repeat(32,1fr);">
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t">4pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">8</div>
+        <div class="spread-bar" style="height:44%"></div>
+        <div class="spread-t">5pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">7</div>
+        <div class="spread-bar" style="height:38%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">6</div>
+        <div class="spread-bar" style="height:33%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">12</div>
+        <div class="spread-bar" style="height:66%"></div>
+        <div class="spread-t">6pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">8</div>
+        <div class="spread-bar" style="height:44%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">2</div>
+        <div class="spread-bar" style="height:11%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">8</div>
+        <div class="spread-bar" style="height:44%"></div>
+        <div class="spread-t">7pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">8</div>
+        <div class="spread-bar" style="height:44%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">8</div>
+        <div class="spread-bar" style="height:44%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">1</div>
+        <div class="spread-bar" style="height:5%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">18</div>
+        <div class="spread-bar spread-bar-peak" style="height:100%"></div>
+        <div class="spread-t">8pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">3</div>
+        <div class="spread-bar" style="height:16%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">6</div>
+        <div class="spread-bar" style="height:33%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">5</div>
+        <div class="spread-bar" style="height:27%"></div>
+        <div class="spread-t">9pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">8</div>
+        <div class="spread-bar" style="height:44%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n">10</div>
+        <div class="spread-bar" style="height:55%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t">10pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t">11pm</div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div>
+      <div class="spread-col">
+        <div class="spread-n"></div>
+        <div class="spread-bar" style="height:0%"></div>
+        <div class="spread-t"></div>
+      </div></div>
+    <div class="sec-foot">Spread of covers · 15-min buckets · peak in orange</div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">07</span>
+        <div>
+          <h2 class="sec-title">Upcoming reservations</h2>
+          <div class="sec-sub">Tonight · VIPs highlighted · scroll for more</div>
+        </div>
+      </div>
+    </div>
+    <div class="res-list">
+    <div class="res-row">
+      <div class="res-time">5:00pm</div>
+      <div>
+        <div class="res-name">Annie Chang</div>
+        
+      </div>
+      <div class="res-size">4</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">5:00pm</div>
+      <div>
+        <div class="res-name">Max Goodman</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">5:00pm</div>
+      <div>
+        <div class="res-name">Danielle Moore</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">5:15pm</div>
+      <div>
+        <div class="res-name">Amelia Posada</div>
+        
+      </div>
+      <div class="res-size">3</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">5:15pm</div>
+      <div>
+        <div class="res-name">Cecil Ramos</div>
+        
+      </div>
+      <div class="res-size">4</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">5:45pm</div>
+      <div>
+        <div class="res-name">Brenda L. Davis</div>
+        
+      </div>
+      <div class="res-size">3</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">5:45pm</div>
+      <div>
+        <div class="res-name">sun lee</div>
+        <div class="res-notes">Brian’s birthday</div>
+      </div>
+      <div class="res-size">3</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">6:00pm</div>
+      <div>
+        <div class="res-name">dinah roberts</div>
+        
+      </div>
+      <div class="res-size">6</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">6:00pm</div>
+      <div>
+        <div class="res-name">Marisa Fernandez</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">6:00pm</div>
+      <div>
+        <div class="res-name">Nicole Mihalka</div>
+        <div class="res-notes">On the Hermon Neighborhood Council</div>
+      </div>
+      <div class="res-size">4</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">6:30pm</div>
+      <div>
+        <div class="res-name">Spencer Yu</div>
+        <div class="res-notes">Requesting a quiet corner table</div>
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">6:30pm</div>
+      <div>
+        <div class="res-name">Sarah Yee</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">6:30pm</div>
+      <div>
+        <div class="res-name">Robert Barr</div>
+        
+      </div>
+      <div class="res-size">4</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">6:45pm</div>
+      <div>
+        <div class="res-name">Sebastian Puga</div>
+        <div class="res-notes">Friend of Chef’s. Please send a dish. Does not drink!</div>
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">7:00pm</div>
+      <div>
+        <div class="res-name">Dennis Maguire</div>
+        
+      </div>
+      <div class="res-size">4</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">7:00pm</div>
+      <div>
+        <div class="res-name">Jay Han</div>
+        
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">7:00pm</div>
+      <div>
+        <div class="res-name">Cristina Centeno</div>
+        <div class="res-notes">Friend of chef, celebrating a bday</div>
+      </div>
+      <div class="res-size">2</div>
+    </div>
+    <div class="res-row">
+      <div class="res-time">7:15pm</div>
+      <div>
+        <div class="res-name">Carlos Hernandez</div>
+        
+      </div>
+      <div class="res-size">4</div>
+    </div></div><div class="res-foot">+18 more reservations tonight</div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">08</span>
+        <div>
+          <h2 class="sec-title">Notify list · tonight</h2>
+          <div class="sec-sub">Resy Notify requests for today's service</div>
+        </div>
+      </div>
+    </div>
+    <div class="placeholder"><div class="placeholder-title">No one on notify</div><div class="placeholder-text">No active Resy Notify requests for tonight — demand is matched.</div></div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">09</span>
+        <div>
+          <h2 class="sec-title">Waitlist performance</h2>
+          <div class="sec-sub">Resy Waitlist · 7-day trailing averages</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="wait-row">
+      <div class="wait-card">
+        <div class="wait-k">Avg quoted wait</div>
+        <div class="wait-v">72 min</div>
+        <div class="wait-s">Last 7 days · 56 entries</div>
+      </div>
+      <div class="wait-card">
+        <div class="wait-k">Avg actual wait</div>
+        <div class="wait-v">40 min</div>
+        <div class="wait-s">Last 7 days</div>
+      </div>
+      <div class="wait-card">
+        <div class="wait-k">Quote accuracy</div>
+        <div class="wait-v wait-v-ok">-32 min</div>
+        <div class="wait-s">Under-quoted by 32 min (good)</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="brief-foot">
+    <div class="brief-foot-row">
+      <div>
+        <div class="foot-mark">Relish</div>
+        <div class="foot-sub">FOH brief · Hermon&#x27;s · Wed · Apr 29, 2026</div>
+      </div>
+      <div class="foot-right">
+        <a href="mailto:xandre@gotrelish.com" class="foot-link">Contact Relish</a>
+        <span class="foot-dot">·</span>
+        <span>Data: Toast POS</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

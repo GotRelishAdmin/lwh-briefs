@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Found Oyster · Owner Brief · 2026-04-29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange:#C8541F; --orange-deep:#A34418;
+    --cream:#F5EFE3; --cream-deep:#ECE3D2;
+    --green:#2C4A3E; --green-deep:#1F3930;
+    --ink:#1B1410; --ink-soft:#3A2F26;
+    --mute:#7A6C5C; --line:#D9CFBA; --line-soft:#E4DAC4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--cream-deep);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;
+    font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .brief{max-width:960px;margin:32px auto 80px;background:var(--cream);
+    box-shadow:0 1px 0 rgba(27,20,16,.04),0 24px 60px -30px rgba(27,20,16,.18);}
+  /* MASTHEAD */
+  .masthead{background:var(--green);color:var(--cream);padding:28px 44px 40px;}
+  .masthead-top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.7;
+    padding-bottom:18px;border-bottom:1px solid rgba(245,239,227,.18);}
+  .masthead-mid{display:flex;justify-content:space-between;align-items:flex-end;padding-top:22px;gap:24px;}
+  .masthead-role{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--orange);
+    background:rgba(200,84,31,.14);border:1px solid rgba(200,84,31,.35);
+    padding:4px 10px;margin-bottom:14px;border-radius:2px;}
+  .masthead-title{font-family:'Old Standard TT',serif;font-weight:400;font-size:72px;
+    line-height:.95;letter-spacing:-.015em;color:var(--cream);}
+  .masthead-sub{margin-top:10px;font-family:'Old Standard TT',serif;font-style:italic;
+    font-size:17px;opacity:.75;}
+  .masthead-right{text-align:right;font-size:13px;line-height:1.6;opacity:.85;padding-bottom:6px;}
+  .masthead-date{font-family:'Old Standard TT',serif;font-style:italic;font-size:18px;margin-bottom:4px;}
+  /* LAYOUT */
+  .sec{padding:32px 44px;}
+  .rule{height:0;margin:0 44px;border-top:1px solid var(--line);}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:22px;}
+  .sec-head-l{display:flex;align-items:baseline;gap:14px;}
+  .sec-n{font-family:'Old Standard TT',serif;font-style:italic;font-size:18px;color:var(--orange);min-width:24px;}
+  .sec-title{font-family:'Old Standard TT',serif;font-weight:400;font-size:28px;
+    line-height:1.1;letter-spacing:-.008em;color:var(--ink);}
+  .sec-sub{margin-top:4px;font-size:13px;color:var(--mute);}
+  .sec-foot{margin-top:14px;font-size:13px;color:var(--mute);}
+  /* GROUP TOTALS */
+  .group-totals{display:flex;gap:22px;}
+  .kv-k{display:block;font-family:'JetBrains Mono',monospace;text-transform:uppercase;
+    letter-spacing:.18em;color:var(--mute);font-size:9px;margin-bottom:4px;}
+  .kv-v{font-family:'Old Standard TT',serif;font-size:18px;color:var(--ink);}
+  /* VENUE GRID */
+  .venue-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .venue-tile{padding:16px 16px 18px;background:var(--cream-deep);border:1px solid var(--line-soft);
+    border-radius:2px;text-decoration:none;color:inherit;display:block;transition:border-color .15s;}
+  .venue-tile:hover{border-color:var(--line);}
+  .venue-self{background:#fff;border:1px solid var(--orange);box-shadow:0 0 0 1px var(--orange);}
+  .venue-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .venue-name{font-size:12px;color:var(--ink-soft);letter-spacing:.01em;font-weight:500;}
+  .venue-self .venue-name{color:var(--orange);}
+  .venue-pin{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--orange);background:rgba(200,84,31,.10);
+    padding:2px 6px;border-radius:1px;}
+  .venue-trend{font-size:11px;color:var(--green);font-weight:600;}
+  .venue-sales{font-family:'Old Standard TT',serif;font-size:26px;letter-spacing:-.012em;
+    font-variant-numeric:tabular-nums;margin-bottom:8px;}
+  .vbar{height:3px;background:var(--line-soft);border-radius:2px;overflow:hidden;margin-bottom:8px;}
+  .vbar-fill{height:100%;background:var(--green);border-radius:2px;}
+  .venue-self .vbar-fill{background:var(--orange);}
+  .venue-covers{font-size:11px;color:var(--mute);}
+  /* STATS */
+  .stat-row{display:grid;gap:14px;}
+  .stat-row-4{grid-template-columns:repeat(4,1fr);}
+  .stat{background:var(--cream-deep);padding:18px 20px 20px;border-radius:2px;border:1px solid var(--line-soft);}
+  .stat-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:10px;}
+  .stat-value{font-family:'Old Standard TT',serif;font-size:44px;line-height:1;
+    letter-spacing:-.015em;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .stat-accent .stat-value{color:var(--orange);}
+  .stat-ok .stat-value{color:var(--green);}
+  .stat-warn .stat-value{color:var(--orange);}
+  .stat-sub{margin-top:8px;font-size:12px;color:var(--mute);}
+  .stat-delta{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.05em;margin-left:6px;font-weight:600;}
+  .d-up{color:#2a6e3a;}
+  .d-down{color:#b83227;}
+  .d-flat{color:var(--mute);}
+  .secondary-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+  .secondary{background:var(--cream);padding:12px 16px;border-radius:2px;border:1px dashed var(--line-soft);}
+  .secondary-k{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:4px;}
+  .secondary-v{font-family:'Old Standard TT',serif;font-size:22px;font-variant-numeric:tabular-nums;color:var(--ink);}
+  /* CALLOUTS */
+  .callout-stack{display:flex;flex-direction:column;gap:10px;}
+  .callout{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:16px 18px;border-radius:2px;align-items:start;}
+  .callout-flag{background:#fff;border-left:3px solid var(--orange);}
+  .callout-win{background:#fff;border-left:3px solid var(--green);}
+  .callout-note{background:var(--cream-deep);border-left:3px solid var(--mute);}
+  .callout-kicker{font-family:'Old Standard TT',serif;font-style:italic;font-size:16px;padding-top:1px;}
+  .callout-flag .callout-kicker{color:var(--orange);}
+  .callout-win .callout-kicker{color:var(--green);}
+  .callout-note .callout-kicker{color:var(--mute);}
+  .callout-title{font-size:14px;color:var(--ink);font-weight:500;margin-bottom:3px;}
+  .callout-text{font-size:13px;color:var(--ink-soft);line-height:1.55;}
+  /* LABOR TABLE */
+  .tbl{background:var(--cream-deep);border-radius:2px;overflow:hidden;}
+  .trow{display:grid;grid-template-columns:2.2fr .6fr .6fr .6fr .8fr;gap:16px;
+    padding:12px 18px;font-size:14px;align-items:center;border-top:1px solid var(--line-soft);}
+  .trow:first-child{border-top:none;}
+  .trow-head{background:transparent;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--mute);padding:10px 18px;}
+  .trow-total{background:rgba(44,74,62,.05);font-weight:500;}
+  .ta-r{text-align:right;}
+  .muted-t{color:var(--mute);}
+  .chip{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;
+    letter-spacing:.18em;text-transform:uppercase;padding:3px 7px;border-radius:1px;font-weight:500;}
+  .chip-boh{background:rgba(200,84,31,.12);color:var(--orange);border:1px solid rgba(200,84,31,.25);}
+  .chip-foh{background:rgba(44,74,62,.10);color:var(--green);border:1px solid rgba(44,74,62,.25);}
+  /* ITEMS TABLE */
+  .items{background:var(--cream-deep);border-radius:2px;}
+  .item-row{display:grid;grid-template-columns:32px 1fr 56px 1.2fr 80px 80px;gap:14px;
+    padding:12px 18px;align-items:center;border-top:1px solid var(--line-soft);font-size:14px;}
+  .item-row:first-child{border-top:none;}
+  .item-row-head{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);}
+  .item-rank{font-family:'Old Standard TT',serif;font-style:italic;color:var(--mute);font-size:15px;text-align:center;}
+  .item-name{color:var(--ink);display:flex;align-items:center;gap:8px;}
+  .item-count{color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+  .item-ibar{height:3px;background:var(--line-soft);border-radius:2px;overflow:hidden;}
+  .item-ibar-fill{height:100%;background:var(--orange);border-radius:2px;}
+  .item-rev{text-align:right;font-variant-numeric:tabular-nums;font-weight:500;}
+  .item-avg{text-align:right;font-variant-numeric:tabular-nums;color:var(--mute);font-size:13px;}
+  .item-flag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--orange);border:1px solid rgba(200,84,31,.35);padding:2px 5px;border-radius:1px;}
+  /* SALES MIX */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:12px;}
+  .mix-row{display:grid;grid-template-columns:70px 1fr 130px;gap:14px;align-items:center;
+    padding:10px 0;border-top:1px dashed var(--line-soft);}
+  .mix-first{border-top:none !important;}
+  .mix-label{font-family:'Old Standard TT',serif;font-style:italic;font-size:17px;color:var(--ink);}
+  .mix-bar{height:6px;background:var(--line-soft);border-radius:2px;overflow:hidden;}
+  .mix-bar-fill-green{height:100%;background:var(--green);border-radius:2px;}
+  .mix-bar-fill-orange{height:100%;background:var(--orange);border-radius:2px;}
+  .mix-val{text-align:right;font-family:'Old Standard TT',serif;font-size:18px;font-variant-numeric:tabular-nums;}
+  .mix-pct{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mute);margin-left:6px;}
+  .loss-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .loss-k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:6px;}
+  .loss-v{font-family:'Old Standard TT',serif;font-size:28px;letter-spacing:-.015em;
+    font-variant-numeric:tabular-nums;margin-bottom:4px;}
+  .loss-ok{color:var(--green);} .loss-warn{color:var(--orange);}
+  .loss-s{font-size:12px;color:var(--mute);}
+  /* RESY — week ahead tiles */
+  .week-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;}
+  .week-tile{padding:14px 10px 14px;background:var(--cream-deep);border:1px solid var(--line-soft);
+    border-radius:2px;text-align:center;}
+  .week-tile-today{background:#fff;border:1px solid var(--orange);box-shadow:0 0 0 1px var(--orange);}
+  .week-tile-wkd{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:4px;}
+  .week-tile-today .week-tile-wkd{color:var(--orange);}
+  .week-tile-day{font-family:'Old Standard TT',serif;font-style:italic;font-size:13px;
+    color:var(--mute);margin-bottom:8px;}
+  .week-tile-covers{font-family:'Old Standard TT',serif;font-size:24px;line-height:1;
+    letter-spacing:-.012em;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .week-tile-today .week-tile-covers{color:var(--orange);}
+  .week-tile-parties{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mute);margin-top:6px;letter-spacing:.05em;}
+  .resy-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
+  /* FOOTER */
+  .brief-foot{background:var(--green);color:var(--cream);padding:24px 44px 28px;}
+  .brief-foot-row{display:flex;justify-content:space-between;align-items:flex-end;}
+  .foot-mark{font-family:'Old Standard TT',serif;font-style:italic;font-size:24px;}
+  .foot-sub{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;opacity:.65;margin-top:4px;}
+  .foot-right{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;opacity:.85;}
+  .foot-link{color:var(--orange);text-decoration:none;border-bottom:1px solid rgba(200,84,31,.4);padding-bottom:1px;}
+  .foot-dot{opacity:.5;margin:0 10px;}
+  @media(max-width:900px){
+    .week-grid{grid-template-columns:repeat(4,1fr);}
+    .resy-stat-row{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:760px){
+    .brief{margin:0;}
+    .masthead,.sec,.brief-foot{padding-left:22px;padding-right:22px;}
+    .rule{margin-left:22px;margin-right:22px;}
+    .masthead-title{font-size:46px;}
+    .masthead-mid{flex-direction:column;}
+    .masthead-right{text-align:left;}
+    .sec-head{flex-direction:column;}
+    .venue-grid{grid-template-columns:repeat(2,1fr);}
+    .stat-row-4{grid-template-columns:repeat(2,1fr);}
+    .two-col{grid-template-columns:1fr;gap:20px;}
+    .item-row{grid-template-columns:24px 1fr 40px 60px 70px;gap:8px;font-size:13px;}
+    .trow{grid-template-columns:1.6fr .6fr .5fr .5fr .8fr;gap:8px;}
+  }
+</style>
+</head>
+<body>
+<div class="brief">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <span>Relish · The Morning Brief</span>
+      <span>Last Word Hospitality</span>
+    </div>
+    <div class="masthead-mid">
+      <div>
+        <div class="masthead-role">Owner Brief</div>
+        <h1 class="masthead-title">Found Oyster</h1>
+        <div class="masthead-sub">Last Word Hospitality</div>
+      </div>
+      <div class="masthead-right">
+        <div class="masthead-date">Wednesday, April 29</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">01</span>
+        <div>
+          <h2 class="sec-title">Group at a glance</h2>
+          <div class="sec-sub">All 7 Last Word Hospitality rooms · last night · data via Toast POS</div>
+        </div>
+      </div>
+      
+    <div class="group-totals">
+      <div><span class="kv-k">Group net</span><span class="kv-v">$53,572</span></div>
+      <div><span class="kv-k">Covers</span><span class="kv-v">875</span></div>
+      <div><span class="kv-k">Top room</span><span class="kv-v">Hermon&#x27;s</span></div>
+    </div>
+    </div>
+    <div class="venue-grid">
+      <a class="venue-tile" href="2026-04-29_rasarumah_owner_brief.html">
+        <div class="venue-head">
+          <span class="venue-name">Rasarumah</span>
+          
+        </div>
+        <div class="venue-sales">$2,567</div>
+        <div class="vbar"><div class="vbar-fill" style="width:19%"></div></div>
+        <div class="venue-covers">43 covers · $59.69/guest</div>
+      </a>
+      <a class="venue-tile" href="2026-04-29_barra-santos_owner_brief.html">
+        <div class="venue-head">
+          <span class="venue-name">Barra Santos</span>
+          
+        </div>
+        <div class="venue-sales">$6,230</div>
+        <div class="vbar"><div class="vbar-fill" style="width:46%"></div></div>
+        <div class="venue-covers">89 covers · $70.00/guest</div>
+      </a>
+      <a class="venue-tile" href="2026-04-29_red-dog-saloon_owner_brief.html">
+        <div class="venue-head">
+          <span class="venue-name">Red Dog Saloon</span>
+          
+        </div>
+        <div class="venue-sales">$5,055</div>
+        <div class="vbar"><div class="vbar-fill" style="width:38%"></div></div>
+        <div class="venue-covers">163 covers · $31.01/guest</div>
+      </a>
+      <a class="venue-tile" href="2026-04-29_queens_owner_brief.html">
+        <div class="venue-head">
+          <span class="venue-name">Queen&#x27;s</span>
+          
+        </div>
+        <div class="venue-sales">$10,077</div>
+        <div class="vbar"><div class="vbar-fill" style="width:75%"></div></div>
+        <div class="venue-covers">123 covers · $81.93/guest</div>
+      </a>
+      <a class="venue-tile venue-self" href="2026-04-29_found-oyster_owner_brief.html">
+        <div class="venue-head">
+          <span class="venue-name">Found Oyster</span>
+          <span class="venue-pin">You</span>
+        </div>
+        <div class="venue-sales">$9,485</div>
+        <div class="vbar"><div class="vbar-fill" style="width:71%"></div></div>
+        <div class="venue-covers">119 covers · $79.70/guest</div>
+      </a>
+      <a class="venue-tile" href="2026-04-29_hermons_owner_brief.html">
+        <div class="venue-head">
+          <span class="venue-name">Hermon&#x27;s</span>
+          <span class="venue-trend">↗</span>
+        </div>
+        <div class="venue-sales">$13,265</div>
+        <div class="vbar"><div class="vbar-fill" style="width:100%"></div></div>
+        <div class="venue-covers">196 covers · $67.68/guest</div>
+      </a>
+      <a class="venue-tile" href="2026-04-29_copper-room_owner_brief.html">
+        <div class="venue-head">
+          <span class="venue-name">The Copper Room</span>
+          
+        </div>
+        <div class="venue-sales">$6,894</div>
+        <div class="vbar"><div class="vbar-fill" style="width:51%"></div></div>
+        <div class="venue-covers">142 covers · $48.55/guest</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">02</span>
+        <div>
+          <h2 class="sec-title">Found Oyster &middot; last night</h2>
+          <div class="sec-sub">House summary — Wednesday, April 29 vs. Wed Apr 22</div>
+        </div>
+      </div>
+    </div>
+    <div class="stat-row stat-row-4">
+      <div class="stat stat-accent">
+        <div class="stat-label">Net Sales</div>
+        <div class="stat-value">$9,485</div>
+        <div class="stat-sub"><span class="stat-delta d-up">↑6%</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Covers <span style="font-family:'Inter Tight';font-size:9px;letter-spacing:.08em;color:var(--mute);">(guests)</span></div>
+        <div class="stat-value">119</div>
+        <div class="stat-sub"><span class="stat-delta d-up">↑1%</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Avg / Guest</div>
+        <div class="stat-value">$79.70</div>
+        <div class="stat-sub"><span class="stat-delta d-up">↑5%</span></div>
+      </div>
+      <div class="stat stat-ok">
+        <div class="stat-label">Labor %</div>
+        <div class="stat-value">18.9%</div>
+        <div class="stat-sub">Target ≤ 35% </div>
+      </div>
+    </div>
+    <div class="secondary-row">
+      <div class="secondary">
+        <div class="secondary-k">Orders (checks)</div>
+        <div class="secondary-v">56 <span class="stat-delta d-down">↓2%</span></div>
+      </div>
+      <div class="secondary">
+        <div class="secondary-k">Avg / Order</div>
+        <div class="secondary-v">$169.37 <span class="stat-delta d-up">↑8%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">03</span>
+        <div>
+          <h2 class="sec-title">Today's attention</h2>
+        </div>
+      </div>
+    </div>
+    <div class="callout-stack">
+    <div class="callout callout-note">
+      <div class="callout-kicker">Note</div>
+      <div>
+        <div class="callout-title">Overtime: Meredith Brugler — 1.0 OT hours</div>
+        <div class="callout-text">FOH clocked 9.0 total hours. Consider adjusting start times.</div>
+      </div>
+    </div>
+    <div class="callout callout-note">
+      <div class="callout-kicker">Note</div>
+      <div>
+        <div class="callout-title">Overtime: Christian Rodriguez — 0.4 OT hours</div>
+        <div class="callout-text">FOH clocked 8.4 total hours. Consider adjusting start times.</div>
+      </div>
+    </div>
+    <div class="callout callout-note">
+      <div class="callout-kicker">Note</div>
+      <div>
+        <div class="callout-title">Overtime: Alejandro Oritz — 1.3 OT hours</div>
+        <div class="callout-text">FOH clocked 9.3 total hours. Consider adjusting start times.</div>
+      </div>
+    </div>
+    <div class="callout callout-note">
+      <div class="callout-kicker">Note</div>
+      <div>
+        <div class="callout-title">Overtime: Carlos Paniagua — 0.2 OT hours</div>
+        <div class="callout-text">FOH clocked 8.2 total hours. Consider adjusting start times.</div>
+      </div>
+    </div>
+    <div class="callout callout-note">
+      <div class="callout-kicker">Note</div>
+      <div>
+        <div class="callout-title">Overtime: Olivia Weik — 0.1 OT hours</div>
+        <div class="callout-text">FOH clocked 8.1 total hours. Consider adjusting start times.</div>
+      </div>
+    </div>
+    <div class="callout callout-note">
+      <div class="callout-kicker">Note</div>
+      <div>
+        <div class="callout-title">Overtime: Woodrow Rim — 0.3 OT hours</div>
+        <div class="callout-text">FOH clocked 8.3 total hours. Consider adjusting start times.</div>
+      </div>
+    </div>
+    <div class="callout callout-note">
+      <div class="callout-kicker">Note</div>
+      <div>
+        <div class="callout-title">Overtime: Orlando Lopez — 0.1 OT hours</div>
+        <div class="callout-text">FOH clocked 8.1 total hours. Consider adjusting start times.</div>
+      </div>
+    </div>
+    <div class="callout callout-note">
+      <div class="callout-kicker">Note</div>
+      <div>
+        <div class="callout-title">Overtime: Diggy Valois — 0.1 OT hours</div>
+        <div class="callout-text">FOH clocked 8.1 total hours. Consider adjusting start times.</div>
+      </div>
+    </div>
+    <div class="callout callout-flag">
+      <div class="callout-kicker">Flag</div>
+      <div>
+        <div class="callout-title">Top item: Norumbegas — 186 sold, $4,460</div>
+        <div class="callout-text"> Monitor par for next service.</div>
+      </div>
+    </div>
+    <div class="callout callout-win">
+      <div class="callout-kicker">Win</div>
+      <div>
+        <div class="callout-title">Labor running 16 pts under target</div>
+        <div class="callout-text">18.9% vs 35% target. Room to add a runner or expo without breaking plan.</div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">04</span>
+        <div>
+          <h2 class="sec-title">Who worked last night</h2>
+          <div class="sec-sub">12 staff · data via Toast POS</div>
+        </div>
+      </div>
+    </div>
+    <div class="tbl">
+      <div class="trow trow-head">
+        <div>Employee</div><div>Role</div>
+        <div class="ta-r">Hours</div><div class="ta-r">OT</div><div class="ta-r">Labor $</div>
+      </div>
+      
+    <div class="trow">
+      <div>Meredith Brugler</div>
+      <div><span class="chip chip-foh">FOH</span></div>
+      <div class="ta-r">9.0h</div>
+      <div class="ta-r muted-t">1.0h</div>
+      <div class="ta-r">$218.32</div>
+    </div>
+    <div class="trow">
+      <div>Christian Rodriguez</div>
+      <div><span class="chip chip-foh">FOH</span></div>
+      <div class="ta-r">8.4h</div>
+      <div class="ta-r muted-t">0.4h</div>
+      <div class="ta-r">$188.91</div>
+    </div>
+    <div class="trow">
+      <div>Alejandro Oritz</div>
+      <div><span class="chip chip-foh">FOH</span></div>
+      <div class="ta-r">9.3h</div>
+      <div class="ta-r muted-t">1.3h</div>
+      <div class="ta-r">$172.39</div>
+    </div>
+    <div class="trow">
+      <div>Carlos Paniagua</div>
+      <div><span class="chip chip-foh">FOH</span></div>
+      <div class="ta-r">8.2h</div>
+      <div class="ta-r muted-t">0.2h</div>
+      <div class="ta-r">$149.54</div>
+    </div>
+    <div class="trow">
+      <div>Olivia Weik</div>
+      <div><span class="chip chip-foh">FOH</span></div>
+      <div class="ta-r">8.1h</div>
+      <div class="ta-r muted-t">0.1h</div>
+      <div class="ta-r">$146.87</div>
+    </div>
+    <div class="trow">
+      <div>Woodrow Rim</div>
+      <div><span class="chip chip-foh">FOH</span></div>
+      <div class="ta-r">8.3h</div>
+      <div class="ta-r muted-t">0.3h</div>
+      <div class="ta-r">$145.51</div>
+    </div>
+    <div class="trow">
+      <div>Orlando Lopez</div>
+      <div><span class="chip chip-foh">FOH</span></div>
+      <div class="ta-r">8.1h</div>
+      <div class="ta-r muted-t">0.1h</div>
+      <div class="ta-r">$141.93</div>
+    </div>
+    <div class="trow">
+      <div>Diggy Valois</div>
+      <div><span class="chip chip-foh">FOH</span></div>
+      <div class="ta-r">8.1h</div>
+      <div class="ta-r muted-t">0.1h</div>
+      <div class="ta-r">$140.67</div>
+    </div>
+    <div class="trow">
+      <div>Maria Ramirez</div>
+      <div><span class="chip chip-boh">BOH</span></div>
+      <div class="ta-r">7.2h</div>
+      <div class="ta-r muted-t">—</div>
+      <div class="ta-r">$137.21</div>
+    </div>
+    <div class="trow">
+      <div>Everardo Luis</div>
+      <div><span class="chip chip-boh">BOH</span></div>
+      <div class="ta-r">7.2h</div>
+      <div class="ta-r muted-t">—</div>
+      <div class="ta-r">$123.76</div>
+    </div>
+    <div class="trow">
+      <div>Maryna Okhrimenko</div>
+      <div><span class="chip chip-foh">FOH</span></div>
+      <div class="ta-r">6.8h</div>
+      <div class="ta-r muted-t">—</div>
+      <div class="ta-r">$116.72</div>
+    </div>
+    <div class="trow">
+      <div>Julio Cruz</div>
+      <div><span class="chip chip-boh">BOH</span></div>
+      <div class="ta-r">7.2h</div>
+      <div class="ta-r muted-t">—</div>
+      <div class="ta-r">$107.75</div>
+    </div>
+    <div class="trow trow-total">
+      <div>Total · 12 staff</div>
+      <div></div>
+      <div class="ta-r">95.9h</div>
+      <div class="ta-r">3.5h OT</div>
+      <div class="ta-r">$1,789.58</div>
+    </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">05</span>
+        <div>
+          <h2 class="sec-title">Top items</h2>
+          <div class="sec-sub">By revenue · last night</div>
+        </div>
+      </div>
+    </div>
+    <div class="items">
+      <div class="item-row item-row-head">
+        <div></div>
+        <div class="item-name">Item</div>
+        <div class="item-count">Count</div>
+        <div></div>
+        <div class="item-rev">Revenue</div>
+        <div class="item-avg">Avg $</div>
+      </div>
+      
+    <div class="item-row">
+      <div class="item-rank">1</div>
+      <div class="item-name">Norumbegas </div>
+      <div class="item-count">186</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:100%"></div></div>
+      <div class="item-rev">$4,460</div>
+      <div class="item-avg">$23.98</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">2</div>
+      <div class="item-name">Pemaquid </div>
+      <div class="item-count">77</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:40%"></div></div>
+      <div class="item-rev">$1,795</div>
+      <div class="item-avg">$23.32</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">3</div>
+      <div class="item-name">Fortune </div>
+      <div class="item-count">47</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:26%"></div></div>
+      <div class="item-rev">$1,202</div>
+      <div class="item-avg">$25.57</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">4</div>
+      <div class="item-name">Littleneck Clams </div>
+      <div class="item-count">24</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:16%"></div></div>
+      <div class="item-rev">$720</div>
+      <div class="item-avg">$30.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">5</div>
+      <div class="item-name">Uni Service <span class="item-flag">High $</span></div>
+      <div class="item-count">5</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:15%"></div></div>
+      <div class="item-rev">$704</div>
+      <div class="item-avg">$140.70</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">6</div>
+      <div class="item-name">Peel &amp; Eat Prawns </div>
+      <div class="item-count">16</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:13%"></div></div>
+      <div class="item-rev">$598</div>
+      <div class="item-avg">$37.38</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">7</div>
+      <div class="item-name">Scallop Tostada </div>
+      <div class="item-count">21</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:12%"></div></div>
+      <div class="item-rev">$572</div>
+      <div class="item-avg">$27.24</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">8</div>
+      <div class="item-name">Baywatch Platter <span class="item-flag">High $</span></div>
+      <div class="item-count">5</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:10%"></div></div>
+      <div class="item-rev">$490</div>
+      <div class="item-avg">$98.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">9</div>
+      <div class="item-name">Lobster Roll <span class="item-flag">High $</span></div>
+      <div class="item-count">10</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:10%"></div></div>
+      <div class="item-rev">$468</div>
+      <div class="item-avg">$46.80</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">10</div>
+      <div class="item-name">ROYALE <span class="item-flag">High $</span></div>
+      <div class="item-count">8</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:8%"></div></div>
+      <div class="item-rev">$400</div>
+      <div class="item-avg">$50.00</div>
+    </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">06</span>
+        <div>
+          <h2 class="sec-title">Sales mix &amp; loss</h2>
+          <div class="sec-sub">Food vs drink · voids &amp; comps</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">Sales mix</div>
+        <div class="mix-row mix-first">
+          <div class="mix-label">Food</div>
+          <div class="mix-bar"><div class="mix-bar-fill-green" style="width:87%"></div></div>
+          <div class="mix-val">$8,205<span class="mix-pct">87%</span></div>
+        </div>
+        <div class="mix-row">
+          <div class="mix-label">Drink</div>
+          <div class="mix-bar"><div class="mix-bar-fill-orange" style="width:13%"></div></div>
+          <div class="mix-val">$1,279<span class="mix-pct">13%</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Loss management</div>
+        <div class="loss-row">
+          <div>
+            <div class="loss-k">Voids</div>
+            <div class="loss-v loss-warn">$78.00</div>
+            <div class="loss-s">5 checks</div>
+          </div>
+          <div>
+            <div class="loss-k">Discounts</div>
+            <div class="loss-v loss-warn">$506.05</div>
+            <div class="loss-s">506 applied</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="rule"></div>
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">07</span>
+        <div>
+          <h2 class="sec-title">Tonight &amp; the week ahead</h2>
+          <div class="sec-sub">From Resy · booked reservations · excludes cancellations</div>
+        </div>
+      </div>
+    </div>
+    <div class="resy-stat-row">
+      <div class="stat stat-accent">
+        <div class="stat-label">Tonight · covers</div>
+        <div class="stat-value">66</div>
+        <div class="stat-sub">25 reservations</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Next 7 days</div>
+        <div class="stat-value">384</div>
+        <div class="stat-sub">covers forecast</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">VIPs tonight</div>
+        <div class="stat-value">1</div>
+        <div class="stat-sub">1 party 6+ · 4 on notify</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Peak day</div>
+        <div class="stat-value">Sat</div>
+        <div class="stat-sub">104 covers booked</div>
+      </div>
+    </div>
+    <div class="week-grid">
+      <div class="week-tile week-tile-today">
+        <div class="week-tile-wkd">Today</div>
+        <div class="week-tile-day">4/30</div>
+        <div class="week-tile-covers">66</div>
+        <div class="week-tile-parties">25 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Fri</div>
+        <div class="week-tile-day">5/1</div>
+        <div class="week-tile-covers">84</div>
+        <div class="week-tile-parties">32 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Sat</div>
+        <div class="week-tile-day">5/2</div>
+        <div class="week-tile-covers">104</div>
+        <div class="week-tile-parties">40 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Sun</div>
+        <div class="week-tile-day">5/3</div>
+        <div class="week-tile-covers">75</div>
+        <div class="week-tile-parties">27 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Mon</div>
+        <div class="week-tile-day">5/4</div>
+        <div class="week-tile-covers">32</div>
+        <div class="week-tile-parties">11 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Tue</div>
+        <div class="week-tile-day">5/5</div>
+        <div class="week-tile-covers">37</div>
+        <div class="week-tile-parties">12 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Wed</div>
+        <div class="week-tile-day">5/6</div>
+        <div class="week-tile-covers">27</div>
+        <div class="week-tile-parties">11 res</div>
+      </div>
+      <div class="week-tile">
+        <div class="week-tile-wkd">Thu</div>
+        <div class="week-tile-day">5/7</div>
+        <div class="week-tile-covers">25</div>
+        <div class="week-tile-parties">9 res</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="brief-foot">
+    <div class="brief-foot-row">
+      <div>
+        <div class="foot-mark">Relish</div>
+        <div class="foot-sub">Owner brief · Found Oyster · Wed · Apr 29, 2026</div>
+      </div>
+      <div class="foot-right">
+        <a href="mailto:xandre@gotrelish.com" class="foot-link">Contact Relish</a>
+        <span class="foot-dot">·</span>
+        <span>Data: Toast POS</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
