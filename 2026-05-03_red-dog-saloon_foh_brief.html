@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Red Dog Saloon · FOH Brief · 2026-05-03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange:#C8541F; --orange-deep:#A34418;
+    --cream:#F5EFE3; --cream-deep:#ECE3D2;
+    --green:#2C4A3E; --green-deep:#1F3930;
+    --ink:#1B1410; --ink-soft:#3A2F26;
+    --mute:#7A6C5C; --line:#D9CFBA; --line-soft:#E4DAC4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--cream-deep);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;
+    font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .brief{max-width:960px;margin:32px auto 80px;background:var(--cream);
+    box-shadow:0 1px 0 rgba(27,20,16,.04),0 24px 60px -30px rgba(27,20,16,.18);}
+  .masthead{background:var(--green);color:var(--cream);padding:28px 44px 40px;}
+  .masthead-top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.7;
+    padding-bottom:18px;border-bottom:1px solid rgba(245,239,227,.18);}
+  .masthead-mid{display:flex;justify-content:space-between;align-items:flex-end;padding-top:22px;gap:24px;}
+  .masthead-role{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--orange);
+    background:rgba(200,84,31,.14);border:1px solid rgba(200,84,31,.35);
+    padding:4px 10px;margin-bottom:14px;border-radius:2px;}
+  .masthead-title{font-family:'Old Standard TT',serif;font-weight:400;font-size:72px;
+    line-height:.95;letter-spacing:-.015em;color:var(--cream);}
+  .masthead-sub{margin-top:10px;font-family:'Old Standard TT',serif;font-style:italic;font-size:17px;opacity:.75;}
+  .masthead-right{text-align:right;font-size:13px;line-height:1.6;opacity:.85;padding-bottom:6px;}
+  .masthead-date{font-family:'Old Standard TT',serif;font-style:italic;font-size:18px;margin-bottom:4px;}
+  .sec{padding:32px 44px;}
+  .rule{height:0;margin:0 44px;border-top:1px solid var(--line);}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:22px;}
+  .sec-head-l{display:flex;align-items:baseline;gap:14px;}
+  .sec-n{font-family:'Old Standard TT',serif;font-style:italic;font-size:18px;color:var(--orange);min-width:24px;}
+  .sec-title{font-family:'Old Standard TT',serif;font-weight:400;font-size:28px;
+    line-height:1.1;letter-spacing:-.008em;color:var(--ink);}
+  .sec-sub{margin-top:4px;font-size:13px;color:var(--mute);}
+  .sec-foot{margin-top:14px;font-size:13px;color:var(--mute);}
+  .stat-row{display:grid;gap:14px;}
+  .stat-row-3{grid-template-columns:repeat(3,1fr);}
+  .stat{background:var(--cream-deep);padding:18px 20px 20px;border-radius:2px;border:1px solid var(--line-soft);}
+  .stat-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:10px;}
+  .stat-value{font-family:'Old Standard TT',serif;font-size:44px;line-height:1;
+    letter-spacing:-.015em;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .stat-accent .stat-value{color:var(--orange);}
+  .stat-ok .stat-value{color:var(--green);}
+  .stat-sub{margin-top:8px;font-size:12px;color:var(--mute);}
+  .stat-delta{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.05em;margin-left:6px;font-weight:600;}
+  .d-up{color:#2a6e3a;} .d-down{color:#b83227;} .d-flat{color:var(--mute);}
+  .secondary-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+  .secondary{background:var(--cream);padding:12px 16px;border-radius:2px;border:1px dashed var(--line-soft);}
+  .secondary-k{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:4px;}
+  .secondary-v{font-family:'Old Standard TT',serif;font-size:22px;font-variant-numeric:tabular-nums;color:var(--ink);}
+  /* SERVICE GRID */
+  .service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .service-block{background:var(--cream-deep);padding:20px 22px;border-radius:2px;border:1px solid var(--line-soft);}
+  .service-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:10px;}
+  .service-val{font-family:'Old Standard TT',serif;font-size:32px;letter-spacing:-.015em;
+    font-variant-numeric:tabular-nums;margin-bottom:4px;}
+  .service-sub{font-size:12px;color:var(--mute);}
+  /* ITEMS */
+  .items{background:var(--cream-deep);border-radius:2px;}
+  .item-row{display:grid;grid-template-columns:32px 1fr 56px 1.2fr 80px 80px;gap:14px;
+    padding:12px 18px;align-items:center;border-top:1px solid var(--line-soft);font-size:14px;}
+  .item-row:first-child{border-top:none;}
+  .item-row-head{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);}
+  .item-rank{font-family:'Old Standard TT',serif;font-style:italic;color:var(--mute);font-size:15px;text-align:center;}
+  .item-name{color:var(--ink);display:flex;align-items:center;gap:8px;}
+  .item-count{color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+  .item-ibar{height:3px;background:var(--line-soft);border-radius:2px;overflow:hidden;}
+  .item-ibar-fill{height:100%;background:var(--orange);border-radius:2px;}
+  .item-rev{text-align:right;font-variant-numeric:tabular-nums;font-weight:500;}
+  .item-avg{text-align:right;font-variant-numeric:tabular-nums;color:var(--mute);font-size:13px;}
+  .item-flag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--orange);border:1px solid rgba(200,84,31,.35);padding:2px 5px;border-radius:1px;}
+  .item-kind{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--mute);}
+  /* MIX & LOSS */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:12px;}
+  .mix-row{display:grid;grid-template-columns:70px 1fr 130px;gap:14px;align-items:center;
+    padding:10px 0;border-top:1px dashed var(--line-soft);}
+  .mix-first{border-top:none !important;}
+  .mix-label{font-family:'Old Standard TT',serif;font-style:italic;font-size:17px;color:var(--ink);}
+  .mix-bar{height:6px;background:var(--line-soft);border-radius:2px;overflow:hidden;}
+  .mix-bar-fill-green{height:100%;background:var(--green);border-radius:2px;}
+  .mix-bar-fill-orange{height:100%;background:var(--orange);border-radius:2px;}
+  .mix-val{text-align:right;font-family:'Old Standard TT',serif;font-size:18px;font-variant-numeric:tabular-nums;}
+  .mix-pct{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mute);margin-left:6px;}
+  .loss-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .loss-k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:6px;}
+  .loss-v{font-family:'Old Standard TT',serif;font-size:28px;letter-spacing:-.015em;
+    font-variant-numeric:tabular-nums;margin-bottom:4px;}
+  .loss-ok{color:var(--green);} .loss-warn{color:var(--orange);}
+  .loss-s{font-size:12px;color:var(--mute);}
+  /* CREW */
+  .crew{display:flex;flex-direction:column;gap:2px;}
+  .crew-row{display:flex;justify-content:space-between;align-items:baseline;
+    background:var(--cream-deep);padding:16px 20px;border-radius:2px;}
+  .crew-name{font-size:16px;color:var(--ink);display:flex;align-items:baseline;gap:14px;}
+  .crew-hrs{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mute);letter-spacing:.02em;}
+  .crew-pay{font-family:'Old Standard TT',serif;font-size:19px;font-variant-numeric:tabular-nums;}
+  .crew-total{background:var(--green);color:var(--cream);margin-top:4px;}
+  .crew-total .crew-name{color:var(--cream);}
+  .crew-total .crew-hrs{color:rgba(245,239,227,.65);}
+  .crew-total .crew-pay{color:var(--cream);}
+  /* RESY — spread chart, res list, notify */
+  .spread{display:grid;grid-template-columns:repeat(16,1fr);gap:4px;
+    background:var(--cream-deep);padding:22px 20px 14px;border-radius:2px;height:180px;align-items:end;}
+  .spread-col{display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;}
+  .spread-bar{width:80%;background:var(--green);border-radius:2px 2px 0 0;min-height:2px;position:relative;}
+  .spread-bar-peak{background:var(--orange);}
+  .spread-n{font-family:'Old Standard TT',serif;font-size:12px;font-variant-numeric:tabular-nums;margin-top:4px;color:var(--ink);}
+  .spread-t{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--mute);margin-top:2px;letter-spacing:.02em;white-space:nowrap;}
+  .res-list{background:var(--cream-deep);border-radius:2px;}
+  .res-row{display:grid;grid-template-columns:78px 1fr 52px;gap:14px;padding:10px 16px;
+    border-top:1px solid var(--line-soft);align-items:baseline;}
+  .res-row:first-child{border-top:none;}
+  .res-row-vip{background:#fff;border-left:2px solid var(--orange);}
+  .res-time{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--mute);}
+  .res-row-vip .res-time{color:var(--orange);}
+  .res-name{font-family:'Old Standard TT',serif;font-size:16px;color:var(--ink);}
+  .res-notes{font-size:11px;color:var(--mute);margin-top:2px;}
+  .res-vip-pin{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--orange);background:rgba(200,84,31,.12);padding:1px 5px;border-radius:1px;margin-right:6px;}
+  .res-size{text-align:right;font-family:'Old Standard TT',serif;font-size:18px;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .res-foot{margin-top:10px;font-size:12px;color:var(--mute);}
+  .notify-list{background:var(--cream-deep);border-radius:2px;padding:14px 18px;}
+  .notify-item{display:flex;justify-content:space-between;padding:6px 0;border-top:1px dashed var(--line-soft);font-size:13px;}
+  .notify-item:first-child{border-top:none;}
+  .notify-name{color:var(--ink);}
+  .notify-meta{color:var(--mute);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em;}
+  .wait-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .wait-card{background:var(--cream-deep);padding:16px 18px;border-radius:2px;border:1px solid var(--line-soft);}
+  .wait-k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:8px;}
+  .wait-v{font-family:'Old Standard TT',serif;font-size:28px;letter-spacing:-.015em;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .wait-v-ok{color:var(--green);}
+  .wait-v-warn{color:var(--orange);}
+  .wait-s{font-size:11px;color:var(--mute);margin-top:4px;}
+  /* FOOTER */
+  .brief-foot{background:var(--green);color:var(--cream);padding:24px 44px 28px;}
+  .brief-foot-row{display:flex;justify-content:space-between;align-items:flex-end;}
+  .foot-mark{font-family:'Old Standard TT',serif;font-style:italic;font-size:24px;}
+  .foot-sub{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;opacity:.65;margin-top:4px;}
+  .foot-right{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;opacity:.85;}
+  .foot-link{color:var(--orange);text-decoration:none;border-bottom:1px solid rgba(200,84,31,.4);padding-bottom:1px;}
+  .foot-dot{opacity:.5;margin:0 10px;}
+  @media(max-width:760px){
+    .brief{margin:0;}
+    .masthead,.sec,.brief-foot{padding-left:22px;padding-right:22px;}
+    .rule{margin-left:22px;margin-right:22px;}
+    .masthead-title{font-size:46px;}
+    .masthead-mid{flex-direction:column;}
+    .masthead-right{text-align:left;}
+    .sec-head{flex-direction:column;}
+    .stat-row-3{grid-template-columns:repeat(2,1fr);}
+    .service-grid{grid-template-columns:1fr;}
+    .two-col{grid-template-columns:1fr;gap:20px;}
+    .item-row{grid-template-columns:24px 1fr 40px 60px 70px;gap:8px;font-size:13px;}
+    .wait-row{grid-template-columns:1fr;}
+    .spread{grid-template-columns:repeat(8,1fr);}
+    .res-row{grid-template-columns:60px 1fr 40px;gap:8px;}
+  }
+</style>
+</head>
+<body>
+<div class="brief">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <span>Relish · The Morning Brief</span>
+      <span>Last Word Hospitality</span>
+    </div>
+    <div class="masthead-mid">
+      <div>
+        <div class="masthead-role">Front of House</div>
+        <h1 class="masthead-title">Red Dog Saloon</h1>
+        <div class="masthead-sub">Last Word Hospitality</div>
+      </div>
+      <div class="masthead-right">
+        <div class="masthead-date">Sunday, May 3</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">01</span>
+        <div>
+          <h2 class="sec-title">Floor, last night</h2>
+          <div class="sec-sub">Covers · avg / guest · net vs. Sun Apr 26</div>
+        </div>
+      </div>
+    </div>
+    <div class="stat-row stat-row-3">
+      <div class="stat">
+        <div class="stat-label">Covers <span style="font-family:'Inter Tight';font-size:9px;letter-spacing:.08em;color:var(--mute);">(guests)</span></div>
+        <div class="stat-value">850</div>
+        <div class="stat-sub"><span class="stat-delta d-up">↑142%</span></div>
+      </div>
+      <div class="stat stat-accent">
+        <div class="stat-label">Avg / Guest</div>
+        <div class="stat-value">$27.63</div>
+        <div class="stat-sub"><span class="stat-delta d-down">↓13%</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Net Sales</div>
+        <div class="stat-value">$23,486</div>
+        <div class="stat-sub"><span class="stat-delta d-up">↑110%</span></div>
+      </div>
+    </div>
+    <div class="secondary-row">
+      <div class="secondary">
+        <div class="secondary-k">Orders (checks)</div>
+        <div class="secondary-v">839 <span class="stat-delta d-up">↑145%</span></div>
+      </div>
+      <div class="secondary">
+        <div class="secondary-k">Avg / Order</div>
+        <div class="secondary-v">$27.99 <span class="stat-delta d-down">↓14%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">02</span>
+        <div>
+          <h2 class="sec-title">Service breakdown</h2>
+          <div class="sec-sub">Seating windows · by cover and revenue</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="service-grid">
+      <div class="service-block">
+        <div class="service-kicker">First seating · 5–7pm</div>
+        <div class="service-val">$4,031</div>
+        <div class="service-sub">146 covers · $27.61/guest · 17% of night</div>
+      </div>
+      <div class="service-block">
+        <div class="service-kicker">Second seating · 7–10pm</div>
+        <div class="service-val">$3,387</div>
+        <div class="service-sub">123 covers · $27.54/guest · 14% of night</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">03</span>
+        <div>
+          <h2 class="sec-title">What sold</h2>
+          <div class="sec-sub">Top items by revenue · upsell opportunities</div>
+        </div>
+      </div>
+    </div>
+    <div class="items">
+      <div class="item-row item-row-head">
+        <div></div>
+        <div class="item-name">Item</div>
+        <div class="item-count">Count</div>
+        <div></div>
+        <div class="item-rev">Rev</div>
+        <div class="item-avg">Avg $</div>
+      </div>
+      
+    <div class="item-row">
+      <div class="item-rank">1</div>
+      <div class="item-name">Modelo </div>
+      <div class="item-count">292</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:100%"></div></div>
+      <div class="item-rev">$4,134</div>
+      <div class="item-avg">$14.16</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">2</div>
+      <div class="item-name">BEEF BRISKET TACO </div>
+      <div class="item-count">154</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:77%"></div></div>
+      <div class="item-rev">$3,184</div>
+      <div class="item-avg">$20.67</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">3</div>
+      <div class="item-name">PALOMA </div>
+      <div class="item-count">74</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:34%"></div></div>
+      <div class="item-rev">$1,412</div>
+      <div class="item-avg">$19.09</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">4</div>
+      <div class="item-name">CHICKEN TINGA TACO </div>
+      <div class="item-count">103</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:28%"></div></div>
+      <div class="item-rev">$1,186</div>
+      <div class="item-avg">$11.52</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">5</div>
+      <div class="item-name">Tequila Margarita </div>
+      <div class="item-count">43</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:25%"></div></div>
+      <div class="item-rev">$1,039</div>
+      <div class="item-avg">$24.17</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">6</div>
+      <div class="item-name">BLOODY MARY (TITOS) </div>
+      <div class="item-count">39</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:23%"></div></div>
+      <div class="item-rev">$968</div>
+      <div class="item-avg">$24.81</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">7</div>
+      <div class="item-name">ROTATING BLONDE </div>
+      <div class="item-count">64</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:20%"></div></div>
+      <div class="item-rev">$848</div>
+      <div class="item-avg">$13.25</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">8</div>
+      <div class="item-name">PORK CARNITAS TACO </div>
+      <div class="item-count">71</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:20%"></div></div>
+      <div class="item-rev">$839</div>
+      <div class="item-avg">$11.82</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">9</div>
+      <div class="item-name">Domestic (Rotating) </div>
+      <div class="item-count">89</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:19%"></div></div>
+      <div class="item-rev">$816</div>
+      <div class="item-avg">$9.17</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">10</div>
+      <div class="item-name">LIGHTNING MARGARITA </div>
+      <div class="item-count">46</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:17%"></div></div>
+      <div class="item-rev">$722</div>
+      <div class="item-avg">$15.70</div>
+    </div>
+    </div>
+    <div class='sec-foot'>Deux Roches Macon-Villages WHITE BURGANDY is your highest revenue-per-plate item ($45/ea). Strong upsell tonight.</div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">04</span>
+        <div>
+          <h2 class="sec-title">Sales mix &amp; loss</h2>
+          <div class="sec-sub">Food vs drink · voids &amp; comps</div>
+        </div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">Sales mix</div>
+        <div class="mix-row mix-first">
+          <div class="mix-label">Food</div>
+          <div class="mix-bar"><div class="mix-bar-fill-green" style="width:33%"></div></div>
+          <div class="mix-val">$7,714<span class="mix-pct">33%</span></div>
+        </div>
+        <div class="mix-row">
+          <div class="mix-label">Drink</div>
+          <div class="mix-bar"><div class="mix-bar-fill-orange" style="width:67%"></div></div>
+          <div class="mix-val">$15,772<span class="mix-pct">67%</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Loss management</div>
+        <div class="loss-row">
+          <div>
+            <div class="loss-k">Voids</div>
+            <div class="loss-v loss-warn">$141.40</div>
+            <div class="loss-s">6 checks</div>
+          </div>
+          <div>
+            <div class="loss-k">Discounts</div>
+            <div class="loss-v loss-warn">$1,713.22</div>
+            <div class="loss-s">112 applied</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">05</span>
+        <div>
+          <h2 class="sec-title">Your team</h2>
+          <div class="sec-sub">31 on the floor · 212.6 hrs</div>
+        </div>
+      </div>
+    </div>
+    <div class="crew">
+    <div class="crew-row">
+      <div class="crew-name">Ursula Doswell-Fotheringham <span class="crew-hrs">11.0 hrs · <span style="color:var(--orange);font-size:10px;">+3.0h OT</span></span></div>
+      <div class="crew-pay">$286.47</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Julio Orzoco <span class="crew-hrs">12.2 hrs · <span style="color:var(--orange);font-size:10px;">+4.2h OT</span></span></div>
+      <div class="crew-pay">$284.50</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Jacob Curry <span class="crew-hrs">10.0 hrs · <span style="color:var(--orange);font-size:10px;">+2.0h OT</span></span></div>
+      <div class="crew-pay">$185.65</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">James Morris <span class="crew-hrs">8.4 hrs · <span style="color:var(--orange);font-size:10px;">+1.0h OT</span></span></div>
+      <div class="crew-pay">$179.00</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Timothy Echaguray <span class="crew-hrs">9.2 hrs · <span style="color:var(--orange);font-size:10px;">+1.2h OT</span></span></div>
+      <div class="crew-pay">$162.94</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Mylo Keene Dailey <span class="crew-hrs">8.5 hrs · <span style="color:var(--orange);font-size:10px;">+0.5h OT</span></span></div>
+      <div class="crew-pay">$156.42</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Jen Marlow <span class="crew-hrs">8.6 hrs · <span style="color:var(--orange);font-size:10px;">+0.6h OT</span></span></div>
+      <div class="crew-pay">$146.60</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Joseph Roberts <span class="crew-hrs">8.0 hrs</span></div>
+      <div class="crew-pay">$144.27</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">James Ritchie <span class="crew-hrs">8.5 hrs · <span style="color:var(--orange);font-size:10px;">+0.5h OT</span></span></div>
+      <div class="crew-pay">$143.63</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Patrick Wright <span class="crew-hrs">7.9 hrs</span></div>
+      <div class="crew-pay">$141.84</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Alexis Robertson <span class="crew-hrs">8.1 hrs · <span style="color:var(--orange);font-size:10px;">+0.1h OT</span></span></div>
+      <div class="crew-pay">$138.50</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Kurt Hamm <span class="crew-hrs">7.7 hrs</span></div>
+      <div class="crew-pay">$138.42</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Zach Young <span class="crew-hrs">8.1 hrs · <span style="color:var(--orange);font-size:10px;">+0.1h OT</span></span></div>
+      <div class="crew-pay">$136.47</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Naomi Malacara <span class="crew-hrs">7.9 hrs</span></div>
+      <div class="crew-pay">$130.84</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Jon Pensoneau <span class="crew-hrs">7.9 hrs</span></div>
+      <div class="crew-pay">$126.72</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Bella Johnson <span class="crew-hrs">5.4 hrs · <span style="color:var(--orange);font-size:10px;">+4.2h OT</span></span></div>
+      <div class="crew-pay">$123.67</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Cassandra Coffman <span class="crew-hrs">7.5 hrs</span></div>
+      <div class="crew-pay">$123.42</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Dani Whitfield <span class="crew-hrs">7.3 hrs</span></div>
+      <div class="crew-pay">$123.37</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Calista Arreola <span class="crew-hrs">7.1 hrs</span></div>
+      <div class="crew-pay">$120.16</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Marco Villa <span class="crew-hrs">6.9 hrs</span></div>
+      <div class="crew-pay">$114.51</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Bella Johnson <span class="crew-hrs">6.9 hrs</span></div>
+      <div class="crew-pay">$113.52</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Christopher West <span class="crew-hrs">6.4 hrs</span></div>
+      <div class="crew-pay">$108.50</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Ivy Smalley <span class="crew-hrs">6.5 hrs</span></div>
+      <div class="crew-pay">$108.08</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Anna Veron <span class="crew-hrs">6.3 hrs</span></div>
+      <div class="crew-pay">$100.64</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Nicholas Roberts <span class="crew-hrs">5.4 hrs</span></div>
+      <div class="crew-pay">$89.43</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Robert Ames <span class="crew-hrs">4.7 hrs · <span style="color:var(--orange);font-size:10px;">+1.1h OT</span></span></div>
+      <div class="crew-pay">$86.13</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Kyle Dalman <span class="crew-hrs">5.1 hrs</span></div>
+      <div class="crew-pay">$83.66</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Robert Ames <span class="crew-hrs">4.4 hrs</span></div>
+      <div class="crew-pay">$72.60</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Naomi Malacara <span class="crew-hrs">0.7 hrs · <span style="color:var(--orange);font-size:10px;">+0.6h OT</span></span></div>
+      <div class="crew-pay">$15.76</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">James Ritchie <span class="crew-hrs">0.0 hrs</span></div>
+      <div class="crew-pay">$0.00</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Dustin Turner <span class="crew-hrs">0.0 hrs</span></div>
+      <div class="crew-pay">$0.00</div>
+    </div>
+    <div class="crew-row crew-total">
+      <div class="crew-name">FOH total <span class="crew-hrs">212.6 hrs</span></div>
+      <div class="crew-pay">$3,885.72</div>
+    </div>
+    </div>
+  </section>
+  
+  <div class="rule"></div>
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">06</span>
+        <div>
+          <h2 class="sec-title">Tonight's reservations</h2>
+          <div class="sec-sub">From Resy</div>
+        </div>
+      </div>
+    </div>
+    <div class="placeholder">
+      <div class="placeholder-title">walk-in only, no Resy</div>
+      <div class="placeholder-text">This venue does not use Resy, so reservation visualizations are unavailable.</div>
+    </div>
+  </section>
+
+  <footer class="brief-foot">
+    <div class="brief-foot-row">
+      <div>
+        <div class="foot-mark">Relish</div>
+        <div class="foot-sub">FOH brief · Red Dog Saloon · Sun · May 3, 2026</div>
+      </div>
+      <div class="foot-right">
+        <a href="mailto:xandre@gotrelish.com" class="foot-link">Contact Relish</a>
+        <span class="foot-dot">·</span>
+        <span>Data: Toast POS</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

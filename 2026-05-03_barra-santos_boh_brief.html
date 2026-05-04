@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Barra Santos · BOH Brief · 2026-05-03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter+Tight:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange:#C8541F; --orange-deep:#A34418;
+    --cream:#F5EFE3; --cream-deep:#ECE3D2;
+    --green:#2C4A3E; --green-deep:#1F3930;
+    --ink:#1B1410; --ink-soft:#3A2F26;
+    --mute:#7A6C5C; --line:#D9CFBA; --line-soft:#E4DAC4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--cream-deep);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;
+    font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .brief{max-width:960px;margin:32px auto 80px;background:var(--cream);
+    box-shadow:0 1px 0 rgba(27,20,16,.04),0 24px 60px -30px rgba(27,20,16,.18);}
+  .masthead{background:var(--green);color:var(--cream);padding:28px 44px 40px;}
+  .masthead-top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.7;
+    padding-bottom:18px;border-bottom:1px solid rgba(245,239,227,.18);}
+  .masthead-mid{display:flex;justify-content:space-between;align-items:flex-end;padding-top:22px;gap:24px;}
+  .masthead-role{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--orange);
+    background:rgba(200,84,31,.14);border:1px solid rgba(200,84,31,.35);
+    padding:4px 10px;margin-bottom:14px;border-radius:2px;}
+  .masthead-title{font-family:'Old Standard TT',serif;font-weight:400;font-size:72px;
+    line-height:.95;letter-spacing:-.015em;color:var(--cream);}
+  .masthead-sub{margin-top:10px;font-family:'Old Standard TT',serif;font-style:italic;font-size:17px;opacity:.75;}
+  .masthead-right{text-align:right;font-size:13px;line-height:1.6;opacity:.85;padding-bottom:6px;}
+  .masthead-date{font-family:'Old Standard TT',serif;font-style:italic;font-size:18px;margin-bottom:4px;}
+  .sec{padding:32px 44px;}
+  .rule{height:0;margin:0 44px;border-top:1px solid var(--line);}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:22px;}
+  .sec-head-l{display:flex;align-items:baseline;gap:14px;}
+  .sec-n{font-family:'Old Standard TT',serif;font-style:italic;font-size:18px;color:var(--orange);min-width:24px;}
+  .sec-title{font-family:'Old Standard TT',serif;font-weight:400;font-size:28px;
+    line-height:1.1;letter-spacing:-.008em;color:var(--ink);}
+  .sec-sub{margin-top:4px;font-size:13px;color:var(--mute);}
+  .sec-foot{margin-top:14px;font-size:13px;color:var(--mute);}
+  .stat-row{display:grid;gap:14px;}
+  .stat-row-3{grid-template-columns:repeat(3,1fr);}
+  .stat{background:var(--cream-deep);padding:18px 20px 20px;border-radius:2px;border:1px solid var(--line-soft);}
+  .stat-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--mute);margin-bottom:10px;}
+  .stat-value{font-family:'Old Standard TT',serif;font-size:44px;line-height:1;
+    letter-spacing:-.015em;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .stat-accent .stat-value{color:var(--orange);}
+  .stat-ok .stat-value{color:var(--green);}
+  .stat-sub{margin-top:8px;font-size:12px;color:var(--mute);}
+  .stat-delta{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.05em;margin-left:6px;font-weight:600;}
+  .d-up{color:#2a6e3a;} .d-down{color:#b83227;} .d-flat{color:var(--mute);}
+  /* HOUR CHART */
+  .hourchart{display:grid;grid-template-columns:repeat(9,1fr);gap:10px;
+    background:var(--cream-deep);padding:20px 20px 14px;border-radius:2px;height:160px;}
+  .hbar{display:flex;flex-direction:column;align-items:center;}
+  .hbar-col{flex:1;width:100%;display:flex;align-items:flex-end;padding:0 10%;}
+  .hbar-fill{width:100%;background:var(--green);border-radius:1px;min-height:2px;}
+  .hbar-peak{background:var(--orange);}
+  .hbar-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mute);margin-top:6px;letter-spacing:.02em;}
+  .hbar-n{font-family:'Old Standard TT',serif;font-size:13px;font-variant-numeric:tabular-nums;margin-top:2px;}
+  /* ITEMS */
+  .items{background:var(--cream-deep);border-radius:2px;}
+  .item-row{display:grid;grid-template-columns:32px 1fr 56px 1.2fr 80px 80px;gap:14px;
+    padding:12px 18px;align-items:center;border-top:1px solid var(--line-soft);font-size:14px;}
+  .item-row:first-child{border-top:none;}
+  .item-row-head{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--mute);}
+  .item-rank{font-family:'Old Standard TT',serif;font-style:italic;color:var(--mute);font-size:15px;text-align:center;}
+  .item-name{color:var(--ink);display:flex;align-items:center;gap:8px;}
+  .item-count{color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+  .item-ibar{height:3px;background:var(--line-soft);border-radius:2px;overflow:hidden;}
+  .item-ibar-fill{height:100%;background:var(--orange);border-radius:2px;}
+  .item-rev{text-align:right;font-variant-numeric:tabular-nums;font-weight:500;}
+  .item-avg{text-align:right;font-variant-numeric:tabular-nums;color:var(--mute);font-size:13px;}
+  .item-flag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--orange);border:1px solid rgba(200,84,31,.35);padding:2px 5px;border-radius:1px;}
+  /* CREW */
+  .crew{display:flex;flex-direction:column;gap:2px;}
+  .crew-row{display:flex;justify-content:space-between;align-items:baseline;
+    background:var(--cream-deep);padding:16px 20px;border-radius:2px;}
+  .crew-name{font-size:16px;color:var(--ink);display:flex;align-items:baseline;gap:14px;}
+  .crew-hrs{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mute);letter-spacing:.02em;}
+  .crew-pay{font-family:'Old Standard TT',serif;font-size:19px;font-variant-numeric:tabular-nums;}
+  .crew-total{background:var(--green);color:var(--cream);margin-top:4px;}
+  .crew-total .crew-name{color:var(--cream);}
+  .crew-total .crew-hrs{color:rgba(245,239,227,.65);}
+  .crew-total .crew-pay{color:var(--cream);}
+  /* PLACEHOLDER */
+  .placeholder{background:repeating-linear-gradient(135deg,var(--cream-deep) 0 12px,#E7DDC6 12px 13px);
+    border:1px solid var(--line-soft);padding:22px 24px;border-radius:2px;}
+  .placeholder-title{font-family:'Old Standard TT',serif;font-style:italic;font-size:18px;margin-bottom:6px;}
+  .placeholder-text{font-size:13px;color:var(--ink-soft);line-height:1.55;}
+  /* RESY — cover forecast + large parties */
+  .forecast-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+  .party-dist{background:var(--cream-deep);padding:16px 20px;border-radius:2px;border:1px solid var(--line-soft);}
+  .party-dist-row{display:grid;grid-template-columns:60px 1fr 40px;gap:10px;align-items:center;padding:4px 0;}
+  .party-dist-k{font-family:'Old Standard TT',serif;font-style:italic;font-size:15px;color:var(--ink);}
+  .party-dist-bar{height:8px;background:var(--line-soft);border-radius:2px;overflow:hidden;}
+  .party-dist-bar-fill{height:100%;background:var(--orange);border-radius:2px;}
+  .party-dist-n{text-align:right;font-family:'Old Standard TT',serif;font-size:15px;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .large-list{background:var(--cream-deep);border-radius:2px;}
+  .large-row{display:grid;grid-template-columns:80px 1fr 52px;gap:14px;padding:12px 18px;
+    align-items:baseline;border-top:1px solid var(--line-soft);}
+  .large-row:first-child{border-top:none;}
+  .large-time{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mute);letter-spacing:.04em;}
+  .large-name{font-family:'Old Standard TT',serif;font-size:16px;color:var(--ink);}
+  .large-notes{font-size:11px;color:var(--mute);margin-top:2px;}
+  .large-size{text-align:right;font-family:'Old Standard TT',serif;font-size:22px;font-variant-numeric:tabular-nums;color:var(--orange);}
+  /* FOOTER */
+  .brief-foot{background:var(--green);color:var(--cream);padding:24px 44px 28px;}
+  .brief-foot-row{display:flex;justify-content:space-between;align-items:flex-end;}
+  .foot-mark{font-family:'Old Standard TT',serif;font-style:italic;font-size:24px;}
+  .foot-sub{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;opacity:.65;margin-top:4px;}
+  .foot-right{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;opacity:.85;}
+  .foot-link{color:var(--orange);text-decoration:none;border-bottom:1px solid rgba(200,84,31,.4);padding-bottom:1px;}
+  .foot-dot{opacity:.5;margin:0 10px;}
+  @media(max-width:760px){
+    .brief{margin:0;}
+    .masthead,.sec,.brief-foot{padding-left:22px;padding-right:22px;}
+    .rule{margin-left:22px;margin-right:22px;}
+    .masthead-title{font-size:46px;}
+    .masthead-mid{flex-direction:column;}
+    .masthead-right{text-align:left;}
+    .sec-head{flex-direction:column;}
+    .stat-row-3{grid-template-columns:repeat(2,1fr);}
+    .item-row{grid-template-columns:24px 1fr 40px 60px 70px;gap:8px;font-size:13px;}
+    .hourchart{gap:4px;}
+    .forecast-row{grid-template-columns:1fr;}
+    .large-row{grid-template-columns:60px 1fr 40px;gap:8px;}
+  }
+</style>
+</head>
+<body>
+<div class="brief">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <span>Relish · The Morning Brief</span>
+      <span>Last Word Hospitality</span>
+    </div>
+    <div class="masthead-mid">
+      <div>
+        <div class="masthead-role">Back of House</div>
+        <h1 class="masthead-title">Barra Santos</h1>
+        <div class="masthead-sub">Last Word Hospitality</div>
+      </div>
+      <div class="masthead-right">
+        <div class="masthead-date">Sunday, May 3</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">01</span>
+        <div>
+          <h2 class="sec-title">Kitchen, last night</h2>
+          <div class="sec-sub">Food volume · revenue · labor share vs. Sun Apr 26</div>
+        </div>
+      </div>
+    </div>
+    <div class="stat-row stat-row-3">
+      <div class="stat">
+        <div class="stat-label">Covers Served <span style="font-family:'Inter Tight';font-size:9px;letter-spacing:.08em;color:var(--mute);">(guests)</span></div>
+        <div class="stat-value">143</div>
+        <div class="stat-sub"><span class="stat-delta d-down">↓34%</span></div>
+      </div>
+      <div class="stat stat-accent">
+        <div class="stat-label">Food Revenue</div>
+        <div class="stat-value">$7,365</div>
+        <div class="stat-sub">72% of net sales <span class="stat-delta d-down">↓26%</span></div>
+      </div>
+      <div class="stat stat-ok">
+        <div class="stat-label">BOH Labor</div>
+        <div class="stat-value">11.0%</div>
+        <div class="stat-sub">$1,122 · of food sales </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">02</span>
+        <div>
+          <h2 class="sec-title">Volume by hour</h2>
+          <div class="sec-sub">Service window · when fires landed</div>
+        </div>
+      </div>
+    </div>
+    <div class="hourchart">
+      <div class="hbar">
+        <div class="hbar-col">
+          <div class="hbar-fill" style="height:15%"></div>
+        </div>
+        <div class="hbar-label">3pm</div>
+        <div class="hbar-n">2</div>
+      </div>
+      <div class="hbar">
+        <div class="hbar-col">
+          <div class="hbar-fill" style="height:69%"></div>
+        </div>
+        <div class="hbar-label">4pm</div>
+        <div class="hbar-n">9</div>
+      </div>
+      <div class="hbar">
+        <div class="hbar-col">
+          <div class="hbar-fill" style="height:69%"></div>
+        </div>
+        <div class="hbar-label">5pm</div>
+        <div class="hbar-n">9</div>
+      </div>
+      <div class="hbar">
+        <div class="hbar-col">
+          <div class="hbar-fill" style="height:84%"></div>
+        </div>
+        <div class="hbar-label">6pm</div>
+        <div class="hbar-n">11</div>
+      </div>
+      <div class="hbar">
+        <div class="hbar-col">
+          <div class="hbar-fill hbar-peak" style="height:100%"></div>
+        </div>
+        <div class="hbar-label">7pm</div>
+        <div class="hbar-n">13</div>
+      </div>
+      <div class="hbar">
+        <div class="hbar-col">
+          <div class="hbar-fill" style="height:30%"></div>
+        </div>
+        <div class="hbar-label">8pm</div>
+        <div class="hbar-n">4</div>
+      </div>
+      <div class="hbar">
+        <div class="hbar-col">
+          <div class="hbar-fill" style="height:0%"></div>
+        </div>
+        <div class="hbar-label">9pm</div>
+        <div class="hbar-n"></div>
+      </div>
+      <div class="hbar">
+        <div class="hbar-col">
+          <div class="hbar-fill" style="height:0%"></div>
+        </div>
+        <div class="hbar-label">10pm</div>
+        <div class="hbar-n"></div>
+      </div>
+      <div class="hbar">
+        <div class="hbar-col">
+          <div class="hbar-fill" style="height:0%"></div>
+        </div>
+        <div class="hbar-label">11pm</div>
+        <div class="hbar-n"></div>
+      </div>
+    </div>
+    <div class="sec-foot">Peak 7pm–8pm (13 orders) · 143 total covers</div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">03</span>
+        <div>
+          <h2 class="sec-title">Top food items fired</h2>
+          <div class="sec-sub">Ordered by revenue · watch for 86-list risk</div>
+        </div>
+      </div>
+    </div>
+    <div class="items">
+      <div class="item-row item-row-head">
+        <div></div>
+        <div class="item-name">Item</div>
+        <div class="item-count">Count</div>
+        <div></div>
+        <div class="item-rev">Revenue</div>
+        <div class="item-avg">Avg $</div>
+      </div>
+      
+    <div class="item-row">
+      <div class="item-rank">1</div>
+      <div class="item-name">Grilled Piri Piri <span class="item-flag">High $</span></div>
+      <div class="item-count">18</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:100%"></div></div>
+      <div class="item-rev">$864</div>
+      <div class="item-avg">$48.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">2</div>
+      <div class="item-name">Endive Salad </div>
+      <div class="item-count">23</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:53%"></div></div>
+      <div class="item-rev">$460</div>
+      <div class="item-avg">$20.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">3</div>
+      <div class="item-name">Whole Branzino <span class="item-flag">High $</span></div>
+      <div class="item-count">9</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:53%"></div></div>
+      <div class="item-rev">$459</div>
+      <div class="item-avg">$51.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">4</div>
+      <div class="item-name">Head On Prawns </div>
+      <div class="item-count">13</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:51%"></div></div>
+      <div class="item-rev">$442</div>
+      <div class="item-avg">$34.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">5</div>
+      <div class="item-name">Duck Rice <span class="item-flag">High $</span></div>
+      <div class="item-count">10</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:49%"></div></div>
+      <div class="item-rev">$429</div>
+      <div class="item-avg">$42.90</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">6</div>
+      <div class="item-name">Prime NY Steak <span class="item-flag">High $</span></div>
+      <div class="item-count">4</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:45%"></div></div>
+      <div class="item-rev">$392</div>
+      <div class="item-avg">$98.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">7</div>
+      <div class="item-name">Cabbage &amp; Beans </div>
+      <div class="item-count">16</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:44%"></div></div>
+      <div class="item-rev">$384</div>
+      <div class="item-avg">$24.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">8</div>
+      <div class="item-name">Tuna Crudo </div>
+      <div class="item-count">18</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:43%"></div></div>
+      <div class="item-rev">$378</div>
+      <div class="item-avg">$21.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">9</div>
+      <div class="item-name">Bifana Sandwich </div>
+      <div class="item-count">14</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:34%"></div></div>
+      <div class="item-rev">$294</div>
+      <div class="item-avg">$21.00</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">10</div>
+      <div class="item-name">Marinated Shrimp  </div>
+      <div class="item-count">12</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:33%"></div></div>
+      <div class="item-rev">$294</div>
+      <div class="item-avg">$24.48</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">11</div>
+      <div class="item-name">Snap Pea Salad </div>
+      <div class="item-count">13</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:33%"></div></div>
+      <div class="item-rev">$288</div>
+      <div class="item-avg">$22.15</div>
+    </div>
+    <div class="item-row">
+      <div class="item-rank">12</div>
+      <div class="item-name">Bacalhau Fritters </div>
+      <div class="item-count">14</div>
+      <div class="item-ibar"><div class="item-ibar-fill" style="width:30%"></div></div>
+      <div class="item-rev">$261</div>
+      <div class="item-avg">$18.66</div>
+    </div>
+    </div>
+    <div class='sec-foot'>Grilled Piri Piri (18 sold) — monitor protein par. High volume + high ticket = 86-list risk.</div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">04</span>
+        <div>
+          <h2 class="sec-title">Kitchen team</h2>
+          <div class="sec-sub">10 on the line · 72.6 hrs</div>
+        </div>
+      </div>
+    </div>
+    <div class="crew">
+    <div class="crew-row">
+      <div class="crew-name">Yaneth Elias Coz <span class="crew-hrs">7.9 hrs</span></div>
+      <div class="crew-pay">$150.29</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Mirna Perez <span class="crew-hrs">8.1 hrs · <span style="color:var(--orange);font-size:10px;">+0.1h OT</span></span></div>
+      <div class="crew-pay">$145.91</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Eric Deras Triguero <span class="crew-hrs">7.8 hrs</span></div>
+      <div class="crew-pay">$140.28</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Sebastian Meza <span class="crew-hrs">7.1 hrs</span></div>
+      <div class="crew-pay">$126.88</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Edwin Uceda <span class="crew-hrs">7.0 hrs</span></div>
+      <div class="crew-pay">$125.45</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Willy Chaj <span class="crew-hrs">6.5 hrs</span></div>
+      <div class="crew-pay">$115.26</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Wes Erba <span class="crew-hrs">6.3 hrs</span></div>
+      <div class="crew-pay">$113.30</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">William Foulkes <span class="crew-hrs">6.2 hrs</span></div>
+      <div class="crew-pay">$110.26</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Julia Ramos <span class="crew-hrs">5.3 hrs</span></div>
+      <div class="crew-pay">$94.00</div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-name">Adrian Rodriguez <span class="crew-hrs">10.4 hrs · <span style="color:var(--orange);font-size:10px;">+2.4h OT</span></span></div>
+      <div class="crew-pay">$0.00</div>
+    </div>
+    <div class="crew-row crew-total">
+      <div class="crew-name">BOH total <span class="crew-hrs">72.6 hrs</span></div>
+      <div class="crew-pay">$1,121.63</div>
+    </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">05</span>
+        <div>
+          <h2 class="sec-title">COGS watch</h2>
+          <div class="sec-sub">From MarginEdge · top ingredient price moves</div>
+        </div>
+      </div>
+    </div>
+    <div class="placeholder">
+      <div class="placeholder-title">MarginEdge data coming soon</div>
+      <div class="placeholder-text">Once connected, this section shows your top 5 ingredients with week-over-week price changes and recommended swaps.</div>
+    </div>
+  </section>
+  
+  <div class="rule"></div>
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">06</span>
+        <div>
+          <h2 class="sec-title">Tonight's prep plan</h2>
+          <div class="sec-sub">Resy · booked covers for tonight's service</div>
+        </div>
+      </div>
+    </div>
+    <div class="forecast-row">
+      <div class="stat stat-accent">
+        <div class="stat-label">Covers on book</div>
+        <div class="stat-value">52</div>
+        <div class="stat-sub">19 reservations</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Avg party</div>
+        <div class="stat-value">2.7</div>
+        <div class="stat-sub">guests per reservation</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Parties 6+</div>
+        <div class="stat-value">0</div>
+        <div class="stat-sub">large-party fires</div>
+      </div>
+    </div>
+    <div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:10px;">Party-size mix</div>
+    <div class="party-dist">
+    <div class="party-dist-row">
+      <div class="party-dist-k">1–2</div>
+      <div class="party-dist-bar"><div class="party-dist-bar-fill" style="width:100%"></div></div>
+      <div class="party-dist-n">11</div>
+    </div>
+    <div class="party-dist-row">
+      <div class="party-dist-k">3–4</div>
+      <div class="party-dist-bar"><div class="party-dist-bar-fill" style="width:63%"></div></div>
+      <div class="party-dist-n">7</div>
+    </div>
+    <div class="party-dist-row">
+      <div class="party-dist-k">5–6</div>
+      <div class="party-dist-bar"><div class="party-dist-bar-fill" style="width:9%"></div></div>
+      <div class="party-dist-n">1</div>
+    </div>
+    <div class="party-dist-row">
+      <div class="party-dist-k">7+</div>
+      <div class="party-dist-bar"><div class="party-dist-bar-fill" style="width:0%"></div></div>
+      <div class="party-dist-n">0</div>
+    </div></div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-head-l">
+        <span class="sec-n">07</span>
+        <div>
+          <h2 class="sec-title">Large parties tonight</h2>
+          <div class="sec-sub">Reservations of 6+ · protein planning</div>
+        </div>
+      </div>
+    </div>
+    <div class="placeholder"><div class="placeholder-title">No large parties tonight</div><div class="placeholder-text">No reservations of 6+ on the books — standard prep.</div></div>
+  </section>
+
+  <footer class="brief-foot">
+    <div class="brief-foot-row">
+      <div>
+        <div class="foot-mark">Relish</div>
+        <div class="foot-sub">BOH brief · Barra Santos · Sun · May 3, 2026</div>
+      </div>
+      <div class="foot-right">
+        <a href="mailto:xandre@gotrelish.com" class="foot-link">Contact Relish</a>
+        <span class="foot-dot">·</span>
+        <span>Data: Toast POS</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
